@@ -1,11 +1,11 @@
 const elixir = require('laravel-elixir');
 
-<<<<<<< HEAD
-require('laravel-elixir-vue-2');
 
-=======
 // require('laravel-elixir-vue-2');
->>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
+
+
+// require('laravel-elixir-vue-2');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -17,11 +17,11 @@ require('laravel-elixir-vue-2');
  |
  */
 
-<<<<<<< HEAD
-elixir((mix) => {
+
+/*elixir((mix) => {
     mix.sass('app.scss')
-       .webpack('app.js');
-=======
+       .webpack('app.js');*/
+
 /*elixir((mix) => {
     mix.sass('app.scss')
        .webpack('app.js');
@@ -46,5 +46,4 @@ elixir(function(mix) {
 
    ]);
 
->>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
 });
