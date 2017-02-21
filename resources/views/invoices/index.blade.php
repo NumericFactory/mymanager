@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
-                  <div class="panel-title">Toutes les facture</div>
+                  <div class="panel-title">Toutes les factures</div>
                    <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
                 </div>
                 <div class="panel-body">
@@ -75,7 +75,7 @@
     </div>
 
 <!-- Nifty Modal-->
-                  <div id="form-primary" class="modal-container modal-colored-header custom-width modal-effect-3">
+                  <div id="form-primary" class="modal-container modal-colored-header custom-width modal-effect-10">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><i class="icon s7-close"></i></button>
