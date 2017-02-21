@@ -152,7 +152,7 @@
         <div class="content">
           <div class="am-logo"></div>
           <ul class="sidebar-elements">
-            <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Accueil</span></a>
+            <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Acceil</span></a>
               {{-- <ul class="sub-menu">
                 <li><a href="index.html">Version 1</a>
                 </li>
