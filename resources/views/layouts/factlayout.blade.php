@@ -17,10 +17,10 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    {{-- <link rel="stylesheet" type="text/css" href="assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+   <!--  <link rel="stylesheet" type="text/css" href="assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/lib/select2/css/select2.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap-slider/css/bootstrap-slider.css"/>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/> --}}
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>  -->
 
     <link href="{!! elixir('css/all.css') !!}" rel="stylesheet">
   </head>
@@ -37,10 +37,9 @@
               <img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
               <span class="user-name">Samantha Amaretti</span><span class="angle-down s7-angle-down"></span></a>
                 <ul role="menu" class="dropdown-menu">
-                  <li><a href="#"> <span class="icon s7-user"></span>My profile</a></li>
-                  <li><a href="#"> <span class="icon s7-config"></span>Settings</a></li>
-                  <li><a href="#"> <span class="icon s7-help1"></span>Help</a></li>
-                  <li><a href="#"> <span class="icon s7-power"></span>Sign Out</a></li>
+                  <li><a href="#"> <span class="icon s7-user"></span>Mon compte</a></li>
+                  <li><a href="#"> <span class="icon s7-config"></span>Paramètres</a></li>
+                  <li><a href="#"> <span class="icon s7-power"></span>Déconnexion</a></li>
                 </ul>
               </li>
             </ul>
