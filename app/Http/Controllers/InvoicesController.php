@@ -13,7 +13,7 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-       return view('invoices.index', ['title'=>'Factures']);
+       return view('invoices.index', ['title'=>'Fact']);
     }
 
     /**
