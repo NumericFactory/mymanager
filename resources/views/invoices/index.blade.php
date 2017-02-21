@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
-                  <div class="panel-title">Toutes les factures</div>
+                  <div class="panel-title">Toutes les facture</div>
                    <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
                 </div>
                 <div class="panel-body">
