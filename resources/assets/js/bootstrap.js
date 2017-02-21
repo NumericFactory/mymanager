@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 window._ = require('lodash');
+=======
+/*window._ = require('lodash');*/
+>>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -7,8 +11,13 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
+<<<<<<< HEAD
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
+=======
+/*window.$ = window.jQuery = require('jquery');
+require('bootstrap-sass');*/
+>>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -16,8 +25,13 @@ require('bootstrap-sass');
  * and simple, leaving you to focus on building your next great project.
  */
 
+<<<<<<< HEAD
 window.Vue = require('vue');
 require('vue-resource');
+=======
+/*window.Vue = require('vue');
+require('vue-resource');*/
+>>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -25,11 +39,19 @@ require('vue-resource');
  * included with Laravel will automatically verify the header's value.
  */
 
+<<<<<<< HEAD
 Vue.http.interceptors.push((request, next) => {
     request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
 
     next();
 });
+=======
+/*Vue.http.interceptors.push((request, next) => {
+    request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
+
+    next();
+});*/
+>>>>>>> 834c800531b664a577b74ce0a3d6604a9cba907c
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
