@@ -153,7 +153,7 @@
           <div class="am-logo"></div>
           <ul class="sidebar-elements">
             <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Accueil</span></a>
-              {{-- <ul class="sub-menu">
+               <!-- <ul class="sub-menu">
                 <li><a href="index.html">Version 1</a>
                 </li>
                 <li><a href="dashboard2.html">Version 2</a>
@@ -162,7 +162,7 @@
                 </li>
                 <li><a href="dashboard4.html"><span class="label label-primary pull-right">New</span>Version 4</a>
                 </li>
-              </ul> --}}
+              </ul>  -->
             </li>
 
             <li class="parent"><a href="#"><i class="icon s7-ribbon"></i><span>Factures</span></a>
