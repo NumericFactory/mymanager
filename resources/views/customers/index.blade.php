@@ -7,63 +7,48 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
-                  <div class="panel-title">Toutes les factures</div>
+                  <!-- <div class="panel-title">Toutes les factures</div> -->
                    <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
                 </div>
                 <div class="panel-body">
                   <table class="table table-condensed table-hover table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th width="12%">Etat</th>
-                        <th>Date</th>
-                        <th>Facture</th>
-                        <th>Nom du client</th>
-                        <th>Net à payer</th>
-                        <th>Règlement</th>
-                        <th>Echéance</th>
+                        <th width="12%">Nom du Client</th>
+                        <th>Interlocuteur</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="icon"><i class="icon s7-close"></i> En attente de règlement</td>
-                        <td class="date">16/02/2017</td>
-                        <td class="ref">F101</td>
-                        <td>Windows</td>
-                        <td class="number">4200.00€</td>
-                        <td class="date"></td>
-                        <td class="date">26/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td>WebForce3</td>
+                        <td class="date">Boris Assouline</td>
+                        <td class="ref">boris@wf3.fr</td>
+                        <td>0609730673</td>
+                        <td class="action">Voir</td>
                       </tr>
                       <tr>
-                        <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
-                        <td class="date">16/02/2017</td>
-                        <td class="ref">F102</td>
-                        <td>Apple</td>
-                        <td class="number">450.00€</td>
-                        <td class="date">17/02/2017</td>
-                        <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td>3Wacademy</td>
+                        <td class="date">Djamchid Dalili</td>
+                        <td class="ref">djamchid@3wa.fr</td>
+                        <td>0609852525</td>
+                        <td class="action">Voir</td>
                       </tr>
                       <tr>
-                        <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
-                        <td class="date">16/02/2017</td>
-                        <td class="ref">F103</td>
-                        <td>Samsung</td>
-                        <td class="number">399.70€</td>
-                        <td class="date">17/02/2017</td>
-                        <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td>WebForce3</td>
+                        <td class="date">Boris Assouline</td>
+                        <td class="ref">boris@wf3.fr</td>
+                        <td>0609730673</td>
+                        <td class="action">Voir</td>
                       </tr>
                       <tr>
-                        <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
-                        <td class="date">16/02/2017</td>
-                        <td class="ref">F104</td>
-                        <td>Asus</td>
-                        <td class="number">1299.00€</td>
-                        <td class="date">17/02/2017</td>
-                        <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                       <td>3Wacademy</td>
+                        <td class="date">Djamchid Dalili</td>
+                        <td class="ref">djamchid@3wa.fr</td>
+                        <td>0609852525</td>
+                        <td class="action">Voir</td>
                       </tr>
                     </tbody>
                   </table>
@@ -75,7 +60,7 @@
     </div>
 
 <!-- Nifty Modal-->
-                  <div id="form-primary" class="modal-container modal-colored-header custom-width modal-effect-3">
+                  <div id="form-primary" class="modal-container modal-colored-header custom-width modal-effect-10">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><i class="icon s7-close"></i></button>

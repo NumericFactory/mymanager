@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
-                  <div class="panel-title">Toutes les factures</div>
+                  <!-- <div class="panel-title">Toutes les factures</div> -->
                    <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
                 </div>
                 <div class="panel-body">
@@ -26,7 +26,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="icon"><i class="icon s7-close"></i> En attente de règlement</td>
+                        <td class="icon"><i class="icon s7-close"></i> En attente</td>
                         <td class="date">16/02/2017</td>
                         <td class="ref">F101</td>
                         <td>Windows</td>

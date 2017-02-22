@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
-                  <div class="panel-title">Toutes les factures</div>
+                <!--   <div class="panel-title">Toutes les factures</div> -->
                    <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
                 </div>
                 <div class="panel-body">
@@ -15,12 +15,12 @@
                     <thead>
                       <tr>
                         <th width="12%">Etat</th>
-                        <th>Date</th>
-                        <th>Facture</th>
+                        <th>N°</th>
+                        <th>Etat</th>
                         <th>Nom du client</th>
-                        <th>Net à payer</th>
-                        <th>Règlement</th>
-                        <th>Echéance</th>
+                        <th>Ref. projet</th>
+                        <th>Montant</th>
+                        <th>Pdf</th>
                         <th>Action</th>
                       </tr>
                     </thead>

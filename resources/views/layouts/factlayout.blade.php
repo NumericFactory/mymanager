@@ -35,11 +35,20 @@
             <ul class="nav navbar-nav navbar-right am-user-nav">
               <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">
               <img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
-              <span class="user-name">Samantha Amaretti</span><span class="angle-down s7-angle-down"></span></a>
+              <span class="user-name">Frederic Lossignol</span><span class="angle-down s7-angle-down"></span></a>
                 <ul role="menu" class="dropdown-menu">
                   <li><a href="#"> <span class="icon s7-user"></span>Mon compte</a></li>
                   <li><a href="#"> <span class="icon s7-config"></span>Paramètres</a></li>
-                  <li><a href="#"> <span class="icon s7-power"></span>Déconnexion</a></li>
+                  <li>
+                    <a href="{{route('logout')}}" 
+                    onclick="event.preventDefault();document.getElementById('logout-form').submit();"> 
+                      <span class="icon s7-power"></span>
+                        Déconnexion
+                    </a>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                    </form>
+                  </li>
                 </ul>
               </li>
             </ul>
