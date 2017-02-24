@@ -33,7 +33,7 @@
                         <td class="number">4200.00€</td>
                         <td class="date"></td>
                         <td class="date">26/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td class="action"><i class="icon s7-refresh"></i></td>
                       </tr>
                       <tr>
                         <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
@@ -43,7 +43,10 @@
                         <td class="number">450.00€</td>
                         <td class="date">17/02/2017</td>
                         <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td class="action">
+                          <a href=""><i class="icon s7-look"></i></a>
+                          <a href=""><i class="icon s7-file"></i></a>
+                        </td>
                       </tr>
                       <tr>
                         <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
@@ -53,7 +56,10 @@
                         <td class="number">399.70€</td>
                         <td class="date">17/02/2017</td>
                         <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                         <td class="action">
+                            <a href=""><i class="icon s7-look"></i></a>
+                            <a href=""><i class="icon s7-file"></i></a>
+                          </td>
                       </tr>
                       <tr>
                         <td class="icon"><i class="icon s7-check"></i> Réglé en totalité</td>
@@ -63,7 +69,10 @@
                         <td class="number">1299.00€</td>
                         <td class="date">17/02/2017</td>
                         <td class="date">18/02/2017</td>
-                        <td class="action">Relance</td>
+                        <td class="action">
+                          <a href=""><i class="icon s7-look"></i></a>
+                          <a href=""><i class="icon s7-file"></i></a>
+                        </td>
                       </tr>
                     </tbody>
                   </table>

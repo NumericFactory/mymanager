@@ -7,22 +7,15 @@
     <meta name="author" content="">
     <title>EZFactures</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-   {{--  <link rel="stylesheet" type="text/css" href="assets/lib/stroke-7/style.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/lib/jquery.nanoscroller/css/nanoscroller.css"/> --}}
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-   <!--  <link rel="stylesheet" type="text/css" href="assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/lib/select2/css/select2.min.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/lib/bootstrap-slider/css/bootstrap-slider.css"/>
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>  -->
-
     <link href="{!! elixir('css/all.css') !!}" rel="stylesheet">
+    <link href="{!! elixir('assets/lib/jquery.nanoscroller/css/nanoscroller.css') !!}" rel="stylesheet">
+    <link href="{!! elixir('assets/lib/bootstrap-select/css/bootstrap-select.css') !!}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <div class="am-wrapper am-fixed-sidebar">
@@ -30,7 +23,13 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <div class="page-title"><span>Form Elements</span></div><a href="#" class="am-toggle-left-sidebar navbar-toggle collapsed"><span class="icon-bar"><span></span><span></span><span></span></span></a><a href="index.html" class="navbar-brand"></a>
-          </div><a href="#" class="am-toggle-right-sidebar"><span class="icon s7-menu2"></span></a><a href="#" data-toggle="collapse" data-target="#am-navbar-collapse" class="am-toggle-top-header-menu collapsed"><span class="icon s7-angle-down"></span></a>
+          </div>
+          <a href="#" class="am-toggle-right-sidebar">
+            <span style="color: #024156; border: 2px solid #cc5151; font-weight: bold; padding: 5px; background: #f2baba; border-radius: 55px" class="icon s7-gift"></span>
+          </a>
+          <a href="#" data-toggle="collapse" data-target="#am-navbar-collapse" class="am-toggle-top-header-menu collapsed">
+          <span class="icon s7-angle-down"></span>
+          </a>
           <div id="am-navbar-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right am-user-nav">
               <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">
@@ -65,94 +64,7 @@
               <li><a href="#">Aide et Support</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right am-icons-nav">
-              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><span class="icon s7-bell"></span><span class="indicator"></span></a>
-                <ul class="dropdown-menu am-notifications">
-                  <li>
-                    <div class="title">Notifications<span class="badge">3</span></div>
-                    <div class="list">
-                      <div class="am-scroller nano">
-                        <div class="content nano-content">
-                          <ul>
-                            <li class="active"><a href="#">
-                                <div class="logo"><span class="icon s7-pin"></span></div>
-                                <div class="user-content"><span class="circle"></span><span class="name">Jessica Caruso</span><span class="text-content"> accepted your invitation to join the team.</span><span class="date">2 min ago</span></div></a></li>
-                            <li><a href="#">
-                                <div class="logo"><span class="icon s7-add-user"></span></div>
-                                <div class="user-content"><span class="name">Joel King</span><span class="text-content"> is now following you</span><span class="date">2 days ago</span></div></a></li>
-                            <li><a href="#">
-                                <div class="logo"><span class="icon s7-gleam"></span></div>
-                                <div class="user-content"><span class="name">Claire Sassu</span><span class="text-content"> is watching your main repository</span><span class="date">2 days ago</span></div></a></li>
-                            <li><a href="#">
-                                <div class="logo"><span class="icon s7-add-user"></span></div>
-                                <div class="user-content"><span class="name">Emily Carter</span><span class="text-content"> is now following you</span><span class="date">5 days ago</span></div></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="footer"> <a href="#">View all notifications</a></div>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle"><span class="icon s7-share"></span></a>
-                <ul class="dropdown-menu am-connections">
-                  <li>
-                    <div class="title">Connections</div>
-                    <div class="list">
-                      <div class="content">
-                        <ul>
-                          <li>
-                            <div class="logo"><img src="assets/img/github.png"></div>
-                            <div class="field"><span>GitHub</span>
-                              <div class="pull-right">
-                                <div class="switch-button switch-button-sm">
-                                  <input type="checkbox" checked="" name="check1" id="switch1"><span>
-                                    <label for="switch1"></label></span>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="logo"><img src="assets/img/bitbucket.png"></div>
-                            <div class="field"><span>Bitbucket</span>
-                              <div class="pull-right">
-                                <div class="switch-button switch-button-sm">
-                                  <input type="checkbox" name="check2" id="switch2"><span>
-                                    <label for="switch2"></label></span>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="logo"><img src="assets/img/slack.png"></div>
-                            <div class="field"><span>Slack</span>
-                              <div class="pull-right">
-                                <div class="switch-button switch-button-sm">
-                                  <input type="checkbox" checked="" name="check3" id="switch3"><span>
-                                    <label for="switch3"></label></span>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="logo"><img src="assets/img/dribbble.png"></div>
-                            <div class="field"><span>Dribbble</span>
-                              <div class="pull-right">
-                                <div class="switch-button switch-button-sm">
-                                  <input type="checkbox" name="check4" id="switch4"><span>
-                                    <label for="switch4"> </label></span>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="footer"> <a href="#">View all connections</a></div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+    
           </div>
         </div>
       </nav>
@@ -173,21 +85,21 @@
               </ul>  -->
             </li>
 
-            <li class="parent"><a href="#"><i class="icon s7-ribbon"></i><span>Factures</span></a>
+            <li class="parent"><a href="{{route('invoices.index')}}"><i class="icon s7-ribbon"></i><span>Factures</span></a>
               <ul class="sub-menu">
                 <li class=""><a href="{{route('invoices.index')}}">Toutes les factures</a></li>
                 <li class="active"><a href="{{route('invoices.create')}}"><span class="label label-primary pull-right">Créer</span>Nouvelle facture</a></li>
               </ul>
             </li>
             
-            <li class="parent"><a href="#"><i class="icon s7-note2"></i><span>Devis</span></a>
+            <li class="parent"><a href="{{route('orders.index')}}"><i class="icon s7-note2"></i><span>Devis</span></a>
               <ul class="sub-menu">
                 <li><a href="{{route('orders.index')}}">Tous les devis</a></li>
                 <li><a href="{{route('orders.create')}}"><span class="label label-primary pull-right">Créer</span>Nouveau devis</a></li>
               </ul>
             </li>
 
-            <li class="parent"><a href="#"><i class="icon s7-users"></i><span>Clients</span></a>
+            <li class="parent"><a href="{{route('customers.index')}}"><i class="icon s7-users"></i><span>Clients</span></a>
               <ul class="sub-menu">
                 <li><a href="{{route('customers.index')}}">Tous les clients</a></li>
                 <li><a href="{{route('customers.create')}}"><span class="label label-primary pull-right">Ajouter</span>Nouveau Client</a></li>
@@ -287,20 +199,20 @@
                       <div class="content nano-content">
                         <h2>Recent</h2>
                         <div class="recent">
-                          <div class="user"><a href="#"><img src="assets/img/avatar4.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data"><span class="status away"></span><span class="name">Claire Sassu</span><span class="message">Can you share the...</span></div></a></div>
-                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data"><span class="status"></span><span class="name">Maggie jackson</span><span class="message">I confirmed the info.</span></div></a></div>
-                          <div class="user"><a href="#"><img src="assets/img/avatar3.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data"><span class="status offline"></span><span class="name">Joel King   </span><span class="message">Ready for the meeti...</span></div></a></div>
                         </div>
                         <h2>Contacts</h2>
                         <div class="contact">
-                          <div class="user"><a href="#"><img src="assets/img/avatar6.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data2"><span class="status"></span><span class="name">Mike Bolthort</span></div></a></div>
-                          <div class="user"><a href="#"><img src="assets/img/avatar7.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data2"><span class="status"></span><span class="name">Maggie jackson</span></div></a></div>
-                          <div class="user"><a href="#"><img src="assets/img/avatar8.jpg">
+                          <div class="user"><a href="#"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                               <div class="user-data2"><span class="status offline"></span><span class="name">Jhon Voltemar</span></div></a></div>
                         </div>
                       </div>
@@ -312,7 +224,7 @@
                 </div>
                 <div class="chat-window">
                   <div class="title">
-                    <div class="user"><img src="assets/img/avatar7.jpg">
+                    <div class="user"><img src="//graph.facebook.com/10207061584792575/picture?type=normal&height=100&width=100">
                       <h2>Maggie jackson</h2><span>Active 1h ago</span>
                     </div><span class="icon return s7-angle-left"></span>
                   </div>
@@ -416,7 +328,8 @@
       </nav>
     </div>
 
-    {{-- <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    {{--
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js" type="text/javascript"></script>
     <script src="assets/js/main.js" type="text/javascript"></script>
     <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
@@ -426,12 +339,17 @@
     <script src="assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
     <script src="assets/lib/select2/js/select2.min.js" type="text/javascript"></script>
     <script src="assets/lib/bootstrap-slider/js/bootstrap-slider.js" type="text/javascript"></script>
-    <script src="assets/js/app-form-elements.js" type="text/javascript"></script> --}}
-   
+    <script src="assets/js/app-form-elements.js" type="text/javascript"></script> 
+    --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{!! elixir('js/all.js') !!}"></script>
+
+    <script src="{!! elixir('assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js') !!}"></script>
+    <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="{!! elixir('assets/lib/bootstrap-select/js/bootstrap-select.js') !!}"></script>
 
     <script type="text/javascript">
       //Set Nifty Modals defaults

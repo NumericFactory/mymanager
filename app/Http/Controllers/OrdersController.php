@@ -23,7 +23,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-         return view('orders.create');
+         return view('orders.create', ['title'=>'Créer un nouveau devis']);
     }
 
     /**

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @font-face {
 	font-family: 'Stroke 7';
 	src:url('../fonts/Stroke-7.eot?21lgsr');
@@ -7,6 +8,147 @@
 		url('../fonts/Stroke-7.svg?21lgsr#Stroke-7') format('svg');
 	font-weight: normal;
 	font-style: normal;
+}
+.client-person span {
+	display: block;
+}
+#grandtotalht {
+	display: inline-block;
+}
+.nostyle-button, .tooltip-q {
+    border: none;
+    background: 0 0;
+    padding: 0;
+}
+.addable-row {
+    color: #EF6262;
+    display: inline-block;
+    font-size: 13px;
+}
+.am-top-header .navbar-collapse .navbar-nav > li.dropdown .dropdown-menu > li > a {
+	font-size: 14px !important;
+}
+.bootstrap-select > .dropdown-toggle {
+	background: #f1f1f1;
+}
+.dropdown-menu > li > a {
+    font-weight: 300 !important;
+    color: #504e4e;
+    padding: 7px 20px !important;
+}
+.dropdown-menu > li > a:hover {
+    background-color: #eee !important;
+    color: #444 !important;
+}
+.client-address-header .form-control {
+	height: 27px;
+	padding: 5px 12px;
+}
+.fakeform {
+	padding: 8px;
+	line-height: 1.42857;
+	vertical-align: top;
+	border-top: 1px solid #ddd;
+}
+.invoice-details textarea {
+	overflow: hidden;
+	height: 100px;
+	width: 92%;
+	resize: none;
+	padding: 11px;
+	border: 1px solid #b7b7b7 !important;
+	border-radius: 4px;
+}
+[class*="w-add-on"] {
+    position: relative;
+    display: block;
+} 
+.w-add-on input {
+	height: 40px;
+    padding: 7px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+.w-add-on-right input {
+    height: 40px;
+    padding: 0 11px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+} 
+.client-address-header  .bootstrap-select {
+	width: 100% !important;
+}
+.flex-full-width {
+    display: -webkit-flex;
+    display: flex;
+}
+.flex-full-width, .form-group.full-width .controls input, .full-width {
+    width: 100%;
+}
+.flex-full-width > .fill-width {
+    -webkit-flex: 1;
+    flex: 1;
+}
+.quotation-total-ht {
+    margin-top: 20px;
+}
+.quotation-total-ht, .quotation-total-ttc {
+    background-color: #F1F1F1;
+    padding: 20px;
+}
+.quotation-total-ht > div .totalht, .quotation-total-ht > div .totalttc, .quotation-total-ttc > div .totalht, .quotation-total-ttc > div .totalttc {
+    font-size: 16px;
+    font-weight: 700;
+    color: #444;
+}
+.quotation .amount {
+    display: block;
+    padding-top: 12px;
+}
+td.full-width {
+    width: 50%;
+}
+
+td.c2, td.c3, td.c4 {
+	vertical-align: top;
+}
+td.c4 {
+	padding-left: 35px;
+}
+td.c2 input {
+	width: 57px;
+	text-align: center;
+}
+td.c3 input{
+	width: 93px;
+	text-align: right;
+	margin-right: 33px;
+}
+td.c4 input {
+	width: 110px;
+}
+
+#totalPriceline {
+	font-weight: 600;
+	top: 8px;
+	position: relative;
+}
+.add-on {
+    position: absolute;
+    top: 0;
+    width: 35px;
+    font-family: arial;
+    height: 40px;
+    margin: 0;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: normal;
+    color: #fff;
+    background-color: #024156;
+    border: none;
+    right: 0;
+    border-radius: 0 3px 3px 0;
 }
 [class^="s7-"], [class*=" s7-"] {
 	font-family: 'Stroke 7';
@@ -3881,11 +4023,26 @@ select[multiple].input-lg {
   margin-right: -15px;
 }
 @media (min-width: 768px) {
-  .form-horizontal .control-label {
+  /*.form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
     padding-top: 9px;
-  }
+  }*/
+  	.form-horizontal .control-label {
+    text-align: right;
+    margin-bottom: 0;
+    padding-top: 9px;
+    color: #222;
+    font-weight: bold;
+	}
+} 
+.mission {
+	background: #f1f1f1;
+}
+.panel-grey {
+    border: 1px solid #ddd !important;
+    border-radius: 2px !important;
+    background: #f1f1f1 !important;
 }
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px;
@@ -8611,64 +8768,65 @@ button:focus {
 */
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/thin/raleway-thin.eot');
-  src: url('../lib/raleway/thin/raleway-thin.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/thin/raleway-thin.woff') format('woff'), url('../lib/raleway/thin/raleway-thin.ttf') format('truetype'), url('../lib/raleway/thin/raleway-thin.svg#ralewaythin') format('svg');
+  ../fonts/Stroke-7.eot?21lgsr
+  src: url('../fonts/raleway/thin/raleway-thin.eot');
+  src: url('../fonts/raleway/thin/raleway-thin.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/thin/raleway-thin.woff') format('woff'), url('../fonts/raleway/thin/raleway-thin.ttf') format('truetype'), url('../fonts/raleway/thin/raleway-thin.svg#ralewaythin') format('svg');
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/extralight/raleway-extralight.eot');
-  src: url('../lib/raleway/extralight/raleway-extralight.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/extralight/raleway-extralight.woff') format('woff'), url('../lib/raleway/extralight/raleway-extralight.ttf') format('truetype'), url('../lib/raleway/extralight/raleway-extralight.svg#ralewayextralight') format('svg');
+  src: url('../fonts/raleway/extralight/raleway-extralight.eot');
+  src: url('../fonts/raleway/extralight/raleway-extralight.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/extralight/raleway-extralight.woff') format('woff'), url('../fonts/raleway/extralight/raleway-extralight.ttf') format('truetype'), url('../fonts/raleway/extralight/raleway-extralight.svg#ralewayextralight') format('svg');
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/light/raleway-light.eot');
-  src: url('../lib/raleway/light/raleway-light.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/light/raleway-light.woff') format('woff'), url('../lib/raleway/light/raleway-light.ttf') format('truetype'), url('../lib/raleway/light/raleway-light.svg#ralewaylight') format('svg');
+  src: url('../fonts/raleway/light/raleway-light.eot');
+  src: url('../fonts/raleway/light/raleway-light.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/light/raleway-light.woff') format('woff'), url('../fonts/raleway/light/raleway-light.ttf') format('truetype'), url('../fonts/raleway/light/raleway-light.svg#ralewaylight') format('svg');
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/regular/raleway-regular.eot');
-  src: url('../lib/raleway/regular/raleway-regular.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/regular/raleway-regular.woff') format('woff'), url('../lib/raleway/regular/raleway-regular.ttf') format('truetype'), url('../lib/raleway/regular/raleway-regular.svg#ralewayregular') format('svg');
+  src: url('../fonts/raleway/regular/raleway-regular.eot');
+  src: url('../fonts/raleway/regular/raleway-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/regular/raleway-regular.woff') format('woff'), url('../fonts/raleway/regular/raleway-regular.ttf') format('truetype'), url('../fonts/raleway/regular/raleway-regular.svg#ralewayregular') format('svg');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/medium/raleway-medium.eot');
-  src: url('../lib/raleway/medium/raleway-medium.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/medium/raleway-medium.woff') format('woff'), url('../lib/raleway/medium/raleway-medium.ttf') format('truetype'), url('../lib/raleway/medium/raleway-medium.svg#ralewaymedium') format('svg');
+  src: url('../fonts/raleway/medium/raleway-medium.eot');
+  src: url('../fonts/raleway/medium/raleway-medium.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/medium/raleway-medium.woff') format('woff'), url('../fonts/raleway/medium/raleway-medium.ttf') format('truetype'), url('../fonts/raleway/medium/raleway-medium.svg#ralewaymedium') format('svg');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/semibold/raleway-semibold.eot');
-  src: url('../lib/raleway/semibold/raleway-semibold.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/semibold/raleway-semibold.woff') format('woff'), url('../lib/raleway/semibold/raleway-semibold.ttf') format('truetype'), url('../lib/raleway/semibold/raleway-semibold.svg#ralewaysemibold') format('svg');
+  src: url('../fonts/raleway/semibold/raleway-semibold.eot');
+  src: url('../fonts/raleway/semibold/raleway-semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/semibold/raleway-semibold.woff') format('woff'), url('../fonts/raleway/semibold/raleway-semibold.ttf') format('truetype'), url('../fonts/raleway/semibold/raleway-semibold.svg#ralewaysemibold') format('svg');
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/bold/raleway-bold.eot');
-  src: url('../lib/raleway/bold/raleway-bold.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/bold/raleway-bold.woff') format('woff'), url('../lib/raleway/bold/raleway-bold.ttf') format('truetype'), url('../lib/raleway/bold/raleway-bold.svg#ralewaybold') format('svg');
+  src: url('../fonts/raleway/bold/raleway-bold.eot');
+  src: url('../fonts/raleway/bold/raleway-bold.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/bold/raleway-bold.woff') format('woff'), url('../fonts/raleway/bold/raleway-bold.ttf') format('truetype'), url('../fonts/raleway/bold/raleway-bold.svg#ralewaybold') format('svg');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/extrabold/raleway-extrabold.eot');
-  src: url('../lib/raleway/extrabold/raleway-extrabold.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/extrabold/raleway-extrabold.woff') format('woff'), url('../lib/raleway/extrabold/raleway-extrabold.ttf') format('truetype'), url('../lib/raleway/extrabold/raleway-extrabold.svg#ralewayextrabold') format('svg');
+  src: url('../fonts/raleway/extrabold/raleway-extrabold.eot');
+  src: url('../fonts/raleway/extrabold/raleway-extrabold.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/extrabold/raleway-extrabold.woff') format('woff'), url('../fonts/raleway/extrabold/raleway-extrabold.ttf') format('truetype'), url('../fonts/raleway/extrabold/raleway-extrabold.svg#ralewayextrabold') format('svg');
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url('../lib/raleway/heavy/raleway-heavy.eot');
-  src: url('../lib/raleway/heavy/raleway-heavy.eot?#iefix') format('embedded-opentype'), url('../lib/raleway/heavy/raleway-heavy.woff') format('woff'), url('../lib/raleway/heavy/raleway-heavy.ttf') format('truetype'), url('../lib/raleway/heavy/raleway-heavy.svg#ralewayheavy') format('svg');
+  src: url('../fonts/raleway/heavy/raleway-heavy.eot');
+  src: url('../fonts/raleway/heavy/raleway-heavy.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway/heavy/raleway-heavy.woff') format('woff'), url('../fonts/raleway/heavy/raleway-heavy.ttf') format('truetype'), url('../fonts/raleway/heavy/raleway-heavy.svg#ralewayheavy') format('svg');
   font-weight: 900;
   font-style: normal;
 }
@@ -8681,8 +8839,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/light/opensans-light-webfont.eot');
-  src: url('../lib/open-sans/light/opensans-light-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/light/opensans-light-webfont.woff') format('woff'), url('../lib/open-sans/light/opensans-light-webfont.ttf') format('truetype'), url('../lib/open-sans/light/opensans-light-webfont.svg#OpenSansLight') format('svg');
+  src: url('../fonts/open-sans/light/opensans-light-webfont.eot');
+  src: url('../fonts/open-sans/light/opensans-light-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/light/opensans-light-webfont.woff') format('woff'), url('../fonts/open-sans/light/opensans-light-webfont.ttf') format('truetype'), url('../fonts/open-sans/light/opensans-light-webfont.svg#OpenSansLight') format('svg');
   font-weight: 300;
   font-style: normal;
 }
@@ -8690,8 +8848,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/light-italic/opensans-light-italic-webfont.eot');
-  src: url('../lib/open-sans/light-italic/opensans-light-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/light-italic/opensans-light-italic-webfont.woff') format('woff'), url('../lib/open-sans/light-italic/opensans-light-italic-webfont.ttf') format('truetype'), url('../lib/open-sans/light-italic/opensans-light-italic-webfont.svg#OpenSansLightItalic') format('svg');
+  src: url('../fonts/open-sans/light-italic/opensans-light-italic-webfont.eot');
+  src: url('../fonts/open-sans/light-italic/opensans-light-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/light-italic/opensans-light-italic-webfont.woff') format('woff'), url('../fonts/open-sans/light-italic/opensans-light-italic-webfont.ttf') format('truetype'), url('../fonts/open-sans/light-italic/opensans-light-italic-webfont.svg#OpenSansLightItalic') format('svg');
   font-weight: 300;
   font-style: italic;
 }
@@ -8699,8 +8857,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/regular/opensans-regular-webfont.eot');
-  src: url('../lib/open-sans/regular/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/regular/opensans-regular-webfont.woff') format('woff'), url('../lib/open-sans/regular/opensans-regular-webfont.ttf') format('truetype'), url('../lib/open-sans/regular/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+  src: url('../fonts/open-sans/regular/opensans-regular-webfont.eot');
+  src: url('../fonts/open-sans/regular/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/regular/opensans-regular-webfont.woff') format('woff'), url('../fonts/open-sans/regular/opensans-regular-webfont.ttf') format('truetype'), url('../fonts/open-sans/regular/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -8708,8 +8866,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/italic/opensans-italic-webfont.eot');
-  src: url('../lib/open-sans/italic/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/italic/opensans-italic-webfont.woff') format('woff'), url('../lib/open-sans/italic/opensans-italic-webfont.ttf') format('truetype'), url('../lib/open-sans/italic/opensans-italic-webfont.svg#OpenSansItalic') format('svg');
+  src: url('../fonts/open-sans/italic/opensans-italic-webfont.eot');
+  src: url('../fonts/open-sans/italic/opensans-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/italic/opensans-italic-webfont.woff') format('woff'), url('../fonts/open-sans/italic/opensans-italic-webfont.ttf') format('truetype'), url('../fonts/open-sans/italic/opensans-italic-webfont.svg#OpenSansItalic') format('svg');
   font-weight: normal;
   font-style: italic;
 }
@@ -8717,8 +8875,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/semibold/opensans-semibold-webfont.eot');
-  src: url('../lib/open-sans/semibold/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/semibold/opensans-semibold-webfont.woff') format('woff'), url('../lib/open-sans/semibold/opensans-semibold-webfont.ttf') format('truetype'), url('../lib/open-sans/semibold/opensans-semibold-webfont.svg#OpenSansSemibold') format('svg');
+  src: url('../fonts/open-sans/semibold/opensans-semibold-webfont.eot');
+  src: url('../fonts/open-sans/semibold/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/semibold/opensans-semibold-webfont.woff') format('woff'), url('../fonts/open-sans/semibold/opensans-semibold-webfont.ttf') format('truetype'), url('../fonts/open-sans/semibold/opensans-semibold-webfont.svg#OpenSansSemibold') format('svg');
   font-weight: 600;
   font-style: normal;
 }
@@ -8726,8 +8884,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/semibold-italic/opensans-semibold-italic-webfont.eot');
-  src: url('../lib/open-sans/semibold-italic/opensans-semibold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/semibold-italic/opensans-semibold-italic-webfont.woff') format('woff'), url('../lib/open-sans/semibold-italic/opensans-semibold-italic-webfont.ttf') format('truetype'), url('../lib/open-sans/semibold-italic/opensans-semibold-italic-webfont.svg#OpenSansSemiboldItalic') format('svg');
+  src: url('../fonts/open-sans/semibold-italic/opensans-semibold-italic-webfont.eot');
+  src: url('../fonts/open-sans/semibold-italic/opensans-semibold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/semibold-italic/opensans-semibold-italic-webfont.woff') format('woff'), url('../fonts/open-sans/semibold-italic/opensans-semibold-italic-webfont.ttf') format('truetype'), url('../fonts/open-sans/semibold-italic/opensans-semibold-italic-webfont.svg#OpenSansSemiboldItalic') format('svg');
   font-weight: 600;
   font-style: italic;
 }
@@ -8735,8 +8893,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/bold/opensans-bold-webfont.eot');
-  src: url('../lib/open-sans/bold/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/bold/opensans-bold-webfont.woff') format('woff'), url('../lib/open-sans/bold/opensans-bold-webfont.ttf') format('truetype'), url('../lib/open-sans/bold/opensans-bold-webfont.svg#OpenSansBold') format('svg');
+  src: url('../fonts/open-sans/bold/opensans-bold-webfont.eot');
+  src: url('../fonts/open-sans/bold/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/bold/opensans-bold-webfont.woff') format('woff'), url('../fonts/open-sans/bold/opensans-bold-webfont.ttf') format('truetype'), url('../fonts/open-sans/bold/opensans-bold-webfont.svg#OpenSansBold') format('svg');
   font-weight: bold;
   font-style: normal;
 }
@@ -8744,8 +8902,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/bold-italic/opensans-bold-italic-webfont.eot');
-  src: url('../lib/open-sans/bold-italic/opensans-bold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/bold-italic/opensans-bold-italic-webfont.woff') format('woff'), url('../lib/open-sans/bold-italic/opensans-bold-italic-webfont.ttf') format('truetype'), url('../lib/open-sans/bold-italic/opensans-bold-italic-webfont.svg#OpenSansItalic') format('svg');
+  src: url('../fonts/open-sans/bold-italic/opensans-bold-italic-webfont.eot');
+  src: url('../fonts/open-sans/bold-italic/opensans-bold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/bold-italic/opensans-bold-italic-webfont.woff') format('woff'), url('../fonts/open-sans/bold-italic/opensans-bold-italic-webfont.ttf') format('truetype'), url('../fonts/open-sans/bold-italic/opensans-bold-italic-webfont.svg#OpenSansItalic') format('svg');
   font-weight: bold;
   font-style: italic;
 }
@@ -8753,8 +8911,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/extrabold/opensans-extrabold-webfont.eot');
-  src: url('../lib/open-sans/extrabold/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/extrabold/opensans-extrabold-webfont.woff') format('woff'), url('../lib/open-sans/extrabold/opensans-extrabold-webfont.ttf') format('truetype'), url('../lib/open-sans/extrabold/opensans-extrabold-webfont.svg#OpenSansExtrabold') format('svg');
+  src: url('../fonts/open-sans/extrabold/opensans-extrabold-webfont.eot');
+  src: url('../fonts/open-sans/extrabold/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/extrabold/opensans-extrabold-webfont.woff') format('woff'), url('../fonts/open-sans/extrabold/opensans-extrabold-webfont.ttf') format('truetype'), url('../fonts/open-sans/extrabold/opensans-extrabold-webfont.svg#OpenSansExtrabold') format('svg');
   font-weight: 800;
   font-style: normal;
 }
@@ -8762,8 +8920,8 @@ button:focus {
  * -------------------------- */
 @font-face {
   font-family: 'Open Sans';
-  src: url('../lib/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.eot');
-  src: url('../lib/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../lib/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.woff') format('woff'), url('../lib/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.ttf') format('truetype'), url('../lib/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.svg#OpenSansExtraboldItalic') format('svg');
+  src: url('../fonts/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.eot');
+  src: url('../fonts/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.woff') format('woff'), url('../fonts/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.ttf') format('truetype'), url('../fonts/open-sans/extrabold-italic/opensans-extrabold-italic-webfont.svg#OpenSansExtraboldItalic') format('svg');
   font-weight: 800;
   font-style: italic;
 }
@@ -9512,7 +9670,6 @@ button:focus {
   color: #e1e1e1;
   text-align: center;
   font-size: 12px;
-  font-weight: bold
 }
 .am-left-sidebar .sidebar-elements > li > a .icon {
   display: block;
@@ -11992,10 +12149,36 @@ li.L9 {
 /*------------------------------------------------------------------
   [Invoice]
 */
+.freelance-address-header, .client-address-header {
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+}
+.freelance-address-header h3 {
+	margin-top: 0px;
+	margin-bottom: 16px;
+}
+.freelance-address-header h3 {
+	display: inline-block;
+}
+.freelance-address-header a {
+    margin-left: 13px;
+	font-size: 1.3em;
+	background: #f1f1f1;
+	padding: 0px 6px;
+	border: 1px solid #c7c7c7;
+	border-radius: 50px;
+	width: 27px !important;
+	height: 27px !important;
+	display: inline-block;
+	color: #aaa;
+}
+.freelance-address-header a:hover {
+	color: #EF6262
+}
 .invoice {
   background-color: #ffffff;
-  padding: 100px 100px 70px;
-  color: #8c8c8c;
+  padding: 80px 100px 70px;
+  color: #7c7c7c;
 }
 @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .invoice {
@@ -12008,7 +12191,7 @@ li.L9 {
   }
 }
 .invoice-header {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .invoice-header {
@@ -12071,7 +12254,7 @@ li.L9 {
   }
 }
 .invoice-data {
-  margin-bottom: 110px;
+  margin-bottom: 60px;
 }
 @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .invoice-data {
@@ -12084,9 +12267,10 @@ li.L9 {
   }
 }
 .invoice-person span {
-  font-size: 18px;
-  line-height: 26px;
-  display: block;
+  	font-size: 15px;
+	line-height: 1.77em;
+	display: flex;
+	color: #222;
 }
 @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .invoice-person span {
@@ -12096,7 +12280,34 @@ li.L9 {
 }
 .invoice-person .name {
   font-weight: 500;
+  color: #222;
+  font-weight: bold;
 }
+.invoice-person .address::before {
+  font-family: 'Stroke 7';
+  content: "\e69d";
+  margin-right: 20px; 
+  font-size: 1.5em; 
+  vertical-align: middle;
+  opacity: 0.5;
+}
+.invoice-person .phone::before {
+  font-family: 'Stroke 7';
+  content: "\e670";
+  margin-right: 16px; 
+  font-size: 1.5em; 
+  vertical-align: middle;
+  opacity: 0.5;
+}
+.invoice-person .email::before {
+  font-family: 'Stroke 7';
+  content: "\e639";
+  margin-right: 16px; 
+  font-size: 1.5em; 
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
 .invoice-person:last-child {
   text-align: right;
 }
@@ -12142,7 +12353,8 @@ li.L9 {
 }
 .invoice-details {
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
+  color: #444;
 }
 @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .invoice-details {
@@ -12169,7 +12381,8 @@ li.L9 {
 .invoice-details td.hours,
 .invoice-details td.amount,
 .invoice-details td.summary {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 0px solid #f0f0f0;
+  border-top: 0px solid #f0f0f0;
 }
 .invoice-details td.hours {
   text-align: right;

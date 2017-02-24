@@ -5,6 +5,131 @@
 var App = (function () {
   'use strict';
 
+  var totalPriceline;
+  var unitPriceline;
+  var qty;
+  var grandTotalHt;
+
+
+  function calculateTotalPriceline(e) {
+    //e.preventDefault();
+    var thisinput = e.target.getAttribute('class');
+    var inputlinenumber = thisinput.split(' ')[1].split('-')[1];
+    // console.log(inputlinenumber); 
+
+    // renvoie l1 pour la ligne1, l2 pour la ligne2, etc...
+   
+    totalPriceline = document.querySelector('.totalrow-'+inputlinenumber);
+    //console.log(totalPriceline);
+    grandTotalHt = document.getElementById('grandtotalht');
+    //console.log(grandTotalHt);
+
+    // Si on est sur l'input "quantité"
+    if(e.target.getAttribute('class').split(' ')[0] =='qty') {
+      if(isNaN(e.target.value)) {
+        e.target.value='';
+      }
+      else {
+
+        if(document.querySelector(".currency-"+inputlinenumber).value.trim() != '') {
+          // var inputcurrvalue = e.target.value * (document.querySelector(".currency-"+inputlinenumber).value)
+          console.log(document.querySelector(".currency-"+inputlinenumber));
+          totalPriceline.innerHTML = (e.target.value * document.querySelector(".currency-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+        }
+      }
+    }
+
+    // Si on est sur l'input "prix unitaire"
+    else if(e.target.getAttribute('class').split(' ')[0] == 'currency') {
+      if(isNaN(e.target.value)) {
+        e.target.value='';
+      }
+      else {
+        if(document.querySelector(".qty-"+inputlinenumber).value.trim() != '') {
+          totalPriceline.innerHTML = (e.target.value * document.querySelector(".qty-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+        }
+      }     
+    }
+
+    else {
+      // 
+    }
+
+    var totalLines = document.getElementsByClassName('totalrow');
+    console.log(totalLines);
+    var grandTotalPrice=0;
+
+    for(var t=0; t<totalLines.length; t++) {
+      console.log(totalLines[t].innerHTML);
+        if (!isNaN(totalLines[t].innerHTML.replace(/ /g,''))) 
+          grandTotalPrice += parseFloat(totalLines[t].innerHTML.replace(/ /g,'')); 
+    }
+    console.log(grandTotalPrice);
+    grandTotalHt.innerHTML = grandTotalPrice.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+  }
+
+
+
+
+function autosize(){
+  var el = this;
+  setTimeout(function(){
+    el.style.cssText = 'height:auto; padding:0';
+    // for box-sizing other than "content-box" use:
+    // el.style.cssText = '-moz-box-sizing:content-box';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  },0);
+}
+
+function injectTemplate(template, targetParent, dict) {
+        var count = document.getElementsByClassName('mission-line').length;
+
+        var t = document.querySelector('#' + template);
+        var clone = t.cloneNode(true)
+        for (var key in dict) {
+            clone.innerHTML = clone.innerHTML.replace(key, dict[key])
+        }
+        var fragment = document.importNode(clone.content, true)
+        var canvas = document.querySelector('#' + targetParent);
+
+        fragment.querySelector('input.qty').classList.add('qty-l'+(count+1));
+        fragment.querySelector('input.currency').classList.add('currency-l'+(count+1));
+        fragment.querySelector('.totalrow').classList.add('totalrow-l'+(count+1));
+        canvas.appendChild(fragment);
+
+        for(var i=0; i<document.getElementsByClassName('qty').length; i++) {
+          document.getElementsByClassName('qty')[i].removeEventListener("keyup", calculateTotalPriceline);
+          document.getElementsByClassName('qty')[i].addEventListener("keyup", calculateTotalPriceline);
+        }
+        for(var i=0; i<document.getElementsByClassName('currency').length; i++) {
+          document.getElementsByClassName('currency')[i].removeEventListener("keyup", calculateTotalPriceline);
+          document.getElementsByClassName('currency')[i].addEventListener("keyup", calculateTotalPriceline);
+        }
+        //alert(canvas.innerHTML)
+    }
+
+function injectNewLine() {
+  injectTemplate("template1", "linesInTbody", {var1:"1+1", var2:2, "#ref":"abc.net"});
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var inputQty = document.querySelector('input.qty');
+  var inputUnitPriceline = document.querySelector('input.currency');
+
+  inputQty.addEventListener("change", calculateTotalPriceline);
+  inputUnitPriceline.addEventListener("change", calculateTotalPriceline);
+  inputQty.addEventListener("keyup", calculateTotalPriceline);
+  inputUnitPriceline.addEventListener("keyup", calculateTotalPriceline);
+  document.querySelector('textarea').addEventListener('keydown', autosize);
+  document.querySelector('#addable-row').addEventListener('click', injectNewLine);
+});
+
+
+
+
+
+
+
   //Basic Config
   var config = {
     assetsPath: 'assets',

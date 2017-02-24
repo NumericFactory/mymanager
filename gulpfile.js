@@ -1,9 +1,4 @@
 const elixir = require('laravel-elixir');
-
-
-// require('laravel-elixir-vue-2');
-
-
 // require('laravel-elixir-vue-2');
 
 /*
@@ -16,7 +11,6 @@ const elixir = require('laravel-elixir');
  | file for your application as well as publishing vendor resources.
  |
  */
-
 
 /*elixir((mix) => {
     mix.sass('app.scss')
@@ -31,19 +25,20 @@ elixir(function(mix) {
 
     mix.styles([
         'app.css',
-        '../lib/jquery.niftymodals/dist/jquery.niftymodals.css',  
-
+        '../lib/jquery.niftymodals/dist/jquery.niftymodals.css',
+        '../lib/select2/css/select2.css',
     ]);
 
     mix.scripts([
        '../lib/jquery.niftymodals/dist/jquery.niftymodals.min.js',
+       '../lib/select2/js/select2.min.js',
        'main.js',
-       
-      //'vendor/'
+       '../lib/datetimepicker/js/bootstrap-datetimepicker.js',
+       'app-form-elements.js',
+       //'vendor/'
        //'my.js',
        //'ajaxsetup.js',
        //'file-upload.js'
-
    ]);
 
 });
