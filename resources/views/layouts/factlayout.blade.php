@@ -12,9 +12,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="{!! elixir('css/all.css') !!}" rel="stylesheet">
     <link href="{!! elixir('assets/lib/jquery.nanoscroller/css/nanoscroller.css') !!}" rel="stylesheet">
     <link href="{!! elixir('assets/lib/bootstrap-select/css/bootstrap-select.css') !!}" rel="stylesheet">
+    <link href="{!! elixir('assets/lib/bootstrap-slider/css/bootstrap-slider.css') !!}" rel="stylesheet">
+    <link href="{!! elixir('css/all.css') !!}" rel="stylesheet">
+
+  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -56,8 +59,8 @@
               <li><a href="#">A propos</a></li>
               <li class="dropdown"><a href="{{ route('pricing') }}" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Offres <span class="angle-down s7-angle-down"></span></a>
                 <ul role="menu" class="dropdown-menu">
-                  <li><a href="#">ESSENTIEL</a></li>
-                  <li><a href="#">PRO</a></li>
+                  <li><a href="#"><strong>ESSENTIEL</strong></a></li>
+                  <li><a href="#"><strong>PRO</strong></a></li>
                   
                 </ul>
               </li>
@@ -107,7 +110,7 @@
             </li>
 
 
-            <li class="parent"><a href="#"><i class="icon s7-mail"></i><span>Messages</span></a>
+           {{--  <li class="parent"><a href="#"><i class="icon s7-mail"></i><span>Messages</span></a>
               <ul class="sub-menu">
                 <li><a href="email-inbox.html">Inbox</a>
                 </li>
@@ -116,8 +119,8 @@
                 <li><a href="email-compose.html">Email Compose</a>
                 </li>
               </ul>
-            </li>
-            <li class="parent"><a href="#"><i class="icon s7-settings"></i><span>Configs</span></a>
+            </li> --}}
+            <li class="parent"><a href="{{route('users.edit', Auth::id() )}}"><i class="icon s7-settings"></i><span>Mes infos</span></a>
               <ul class="sub-menu">
                 <li><a href="layouts-nosidebar-right.html">Mon Siret</a></li>
                 <li><a href="pages-blank-aside.html">Mes coordonnées</a></li>
@@ -343,13 +346,15 @@
     --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{!! elixir('assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js') !!}"></script>
     <script src="{!! elixir('js/all.js') !!}"></script>
 
-    <script src="{!! elixir('assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js') !!}"></script>
-    <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script>
     
+
+    {{-- <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script> --}}
+     @yield('pagescript')
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="{!! elixir('assets/lib/bootstrap-select/js/bootstrap-select.js') !!}"></script>
+   
 
     <script type="text/javascript">
       //Set Nifty Modals defaults
@@ -371,9 +376,11 @@
 
     <script type="text/javascript">
       $(document).ready(function(){
-        //initialize the javascript
+        // initialize the javascript
         App.init();
+        App.wizard();
         App.formElements();
+        
       });
     </script>
   </body>

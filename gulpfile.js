@@ -31,10 +31,8 @@ elixir(function(mix) {
 
     mix.scripts([
        '../lib/jquery.niftymodals/dist/jquery.niftymodals.min.js',
-       '../lib/select2/js/select2.min.js',
        'main.js',
-       '../lib/datetimepicker/js/bootstrap-datetimepicker.js',
-       'app-form-elements.js',
+       
        //'vendor/'
        //'my.js',
        //'ajaxsetup.js',

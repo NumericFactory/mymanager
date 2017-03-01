@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::resource('orders', 'OrdersController');
   Route::resource('invoices', 'InvoicesController');
   Route::resource('customers', 'CustomersController');
-  /*Route::resource('users', 'usersController');*/
+  Route::resource('users', 'usersController');
   
   /*  resources defines following routes:
   | GET|HEAD users               | users.index   | UsersController@index

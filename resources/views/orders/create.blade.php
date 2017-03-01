@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-9">
               <div class="invoice">
                 <div class="row invoice-header">
                   <div class="col-xs-7">
@@ -164,6 +164,7 @@
                             </p>
                         </div>
                     </div>
+                    <p class="col-md-12 text-center" style="color: #444; margin-top:5px">TVA non applicable, art. 293B du CGI</p>
                     </div>
                    
                       <!--   
@@ -200,14 +201,11 @@
                     </tbody></table>
                   </div>
                 </div> --}}
+
                 <div class="row">
                   <div class="col-md-12 invoice-payment-method"><span class="title">Conditions de paiment</span><span>Virement</span><span>Banque: BNP</span><span>BIC: 4256981387</span></div>
                 </div>
-                <div class="row">
-                  <div class="col-md-12 invoice-message"><span class="title">Facture hors TVA</span>
-                    <p>TVA non applicable, art. 293B du CGI</p>
-                  </div>
-                </div>
+                
                 <div class="row invoice-company-info">
                   <div class="col-sm-2 logo"><img src="assets/img/logo-invoice-symbol.png" alt="Logo-symbol"></div>
                   <div class="col-sm-4 summary"><span class="title">Frederic Lossignol</span>
@@ -230,7 +228,7 @@
                   <div class="col-md-12">
                    {{--  <button class="btn btn-lg btn-space btn-default">Enregistrer PDF</button>
                     <button class="btn btn-lg btn-space btn-default">Imprimer</button> --}}
-                    <button class="btn btn-lg btn-space btn-primary">Envoyer</button>
+                    <button class="btn btn-lg btn-space btn-primary">Valider</button>
                   </div>
                 </div>
               </div>
@@ -330,3 +328,20 @@
 
 
 @endsection
+
+
+
+@section('pagescript')
+    {{-- <script src="{!! elixir('assets/lib/jquery-ui/jquery-ui.min.js') !!}"></script>
+    <script src="{!! elixir('assets/lib/jquery.nestable/jquery.nestable.js') !!}"></script>
+    <script src="{!! elixir('assets/lib/moment.js/min/moment.min.js') !!}"></script> --}}
+  
+   {{--  <script src="{!! elixir('assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js') !!}"></script> --}}
+   {{-- <script src="{!! elixir('assets/lib/select2/js/select2.min.js') !!}"></script> --}}
+    <script src="{!! elixir('assets/lib/bootstrap-select/js/bootstrap-select.js') !!}"></script>
+   
+   {{--  <script src="{!! elixir('assets/lib/bootstrap-slider/js/bootstrap-slider.js') !!}"></script> --}}
+    
+    <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script>
+@stop
+
