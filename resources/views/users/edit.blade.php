@@ -263,15 +263,15 @@
                           <div role="alert" class="alert alert-info alert-icon">
                             <div class="icon"><span class="s7-piggy"></span></div>
                             <div class="message">
-                             <strong>Indiquez ici vos modes de règlement préférés.</strong> Ils apparaîtront sur l'édition de vos factures.
+                             <strong>Indiquez ici comment vos clients peuvent vous régler.</strong>
                             </div>
                           </div>
                         <div class="form-group col-sm-6"> 
                           <div class="">
 
                               <div class="col-sm-12">
-                                <label class="control-label">Vos mode(s) de règlement préféré(s)*</label>
-                                <p>Indiquez ici vos modes de règlement, vous pourrez selectionner celui ou ceux que vous souhaitez depuis l'édition de vos factures</p>
+                                <label class="control-label">Quel mode(s) de règlement proposez-vous à vos Clients*</label>
+                                <p>Vous pourrez selectionner celui ou ceux que vous souhaitez depuis l'édition de vos factures</p>
                               </div>
                               <div class="col-sm-6">
                                 <div class="am-checkbox">
@@ -299,7 +299,7 @@
 
                         <div class="form-group col-sm-5">
                           <div class="col-sm-12">
-                            <label class="control-label">Délai de paiement préféré</label>
+                            <label class="control-label">Délai de paiement préféré*</label>
                             <p>Choisissez un délai de paiement pour vos factures. Vous pourrez le modifier depuis l'édition de vos factures.</p>
                             <select title="Choisir un délai de paiement" id="first-disabled" class="selectpicker" data-hide-disabled="true">
                                 <optgroup>
