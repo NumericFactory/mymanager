@@ -4,7 +4,7 @@
 
 
   <div class="row wizard-row">
-            <div class="col-lg-9 col-md-12 fuelux">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12 fuelux">
               <div class="block-wizard panel panel-default">
                 <div id="wizard1" class="wizard wizard-ux">
                   <ul class="steps">
@@ -149,11 +149,11 @@
 
                     <div data-step="2" class="step-pane">
                       <form action="#" data-parsley-namespace="data-parsley-" data-parsley-validate="" novalidate="" class="form-horizontal group-border-dashed">
-                        <div class="form-group no-padding">
+                      <!--   <div class="form-group no-padding">
                           <div class="col-sm-7">
                             <h3 class="wizard-title">Indiquez à vos Clients comment ils peuvent vous contacter</h3>
                           </div>
-                        </div>
+                        </div> -->
 
                          <div role="alert" class="alert alert-info alert-icon">
                             <div class="icon"><span class="s7-key"></span></div>
@@ -163,10 +163,10 @@
                           </div>
                         <div class='form-group col-sm-6'>
                           <div class="col-xs-12 xs-pt-10">
-                          <div class="col-sm-3 col-lg-3 col-md-4">
+                          <div class="col-sm-3 col-lg-4 col-md-4">
                             <label class="control-label">Civilité*</label>
                           </div>
-                          <div class="col-lg-9 col-md-8 col-sm-4">
+                          <div class="col-lg-8 col-md-8 col-sm-4">
                             <div class="xs-pt-10">
                               <select title="Civilité" id="first-disabled" class="selectpicker" data-hide-disabled="true">
                                 <optgroup>
@@ -179,22 +179,22 @@
                           </div>
                         </div>
                         <div class="col-xs-12 xs-pt-10">
-                          <div class="col-sm-3 col-lg-3 col-md-4">
+                          <div class="col-sm-3 col-lg-4 col-md-4">
                             <label class="control-label">Votre prénom*</label>
                            
                           </div>
-                          <div class="col-lg-9 col-md-8 col-sm-4">
+                          <div class="col-lg-8 col-md-8 col-sm-4">
                             <div class="xs-pt-10">
                               <input type="text" placeholder="" class="form-control">
                             </div>
                           </div>
                         </div>
                         <div class="col-xs-12 xs-pt-10">
-                          <div class="col-sm-3 col-lg-3 col-md-4">
+                          <div class="col-sm-3 col-lg-4 col-md-4">
                             <label class="control-label">Votre nom*</label>
                            
                           </div>
-                          <div class="col-lg-9 col-md-8 col-sm-4">
+                          <div class="col-lg-8 col-md-8 col-sm-4">
                             <div class="xs-pt-10">
                               <input type="text" placeholder="" class="form-control">
                             </div>
@@ -202,11 +202,11 @@
                         </div>
 
                         <div class="col-xs-12 xs-pt-10">
-                          <div class="col-sm-3 col-lg-3 col-md-4">
+                          <div class="col-sm-3 col-lg-4 col-md-4">
                             <label class="control-label">Téléphone</label>
                             <p>Fixe ou mobile</p> 
                           </div>
-                          <div class="col-lg-9 col-md-8 col-sm-4">
+                          <div class="col-lg-8 col-md-8 col-sm-4">
                             <div class="xs-pt-10">
                               <input type="text" placeholder="" class="form-control">
                             </div>
@@ -214,11 +214,11 @@
                         </div>
 
                         <div class="col-xs-12 xs-pt-10">
-                          <div class="col-sm-3 col-lg-3 col-md-4">
+                          <div class="col-sm-3 col-lg-4 col-md-4">
                             <label class="control-label">Votre Email*</label>
                              <p>Email de contact</p>
                           </div>
-                          <div class="col-lg-9 col-md-8 col-sm-4">
+                          <div class="col-lg-8 col-md-8 col-sm-4">
                             <div class="xs-pt-10">
                               <input type="text" placeholder="" class="form-control">
                             </div>
@@ -259,7 +259,7 @@
 
                     <div data-step="3" class="step-pane">
                       <form action="#" data-parsley-namespace="data-parsley-" data-parsley-validate="" novalidate="" class="form-horizontal group-border-dashed">
-                        <div class="form-group no-padding">
+                        <div class="no-padding">
                           <div role="alert" class="alert alert-info alert-icon">
                             <div class="icon"><span class="s7-piggy"></span></div>
                             <div class="message">
@@ -267,7 +267,7 @@
                             </div>
                           </div>
                         <div class="form-group col-sm-6"> 
-                          <div class="">
+                          <div class="col-xs-12 xs-pt-10">
 
                               <div class="col-sm-12">
                                 <label class="control-label">Quel mode(s) de règlement proposez-vous à vos Clients*</label>
@@ -298,6 +298,7 @@
                         <div style="border-right:1px #ccc" class="col-sm-1"></div>
 
                         <div class="form-group col-sm-5">
+                        <div class="col-xs-12 xs-pt-10">
                           <div class="col-sm-12">
                             <label class="control-label">Délai de paiement préféré*</label>
                             <p>Choisissez un délai de paiement pour vos factures. Vous pourrez le modifier depuis l'édition de vos factures.</p>
@@ -316,6 +317,7 @@
                                 </optgroup>
                               </select>
                           </div>
+                        </div>
                         </div>
 
                         <div class="form-group col-md-12 md-pt-60">
