@@ -2,9 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    {{-- Pour supporter le FormData JS, et notamment la méthode formData.get('inputname') --}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>EZFactures</title>
     <!-- Latest compiled and minified CSS -->
 
@@ -12,20 +16,32 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="{!! elixir('assets/lib/jquery.nanoscroller/css/nanoscroller.css') !!}" rel="stylesheet">
-    <link href="{!! elixir('assets/lib/bootstrap-select/css/bootstrap-select.css') !!}" rel="stylesheet">
-    <link href="{!! elixir('assets/lib/bootstrap-slider/css/bootstrap-slider.css') !!}" rel="stylesheet">
-    <link href="{!! elixir('css/all.css') !!}" rel="stylesheet">
+    <link href="{{ elixir('assets/lib/jquery.nanoscroller/css/nanoscroller.css') }}" rel="stylesheet">
+    <link href="{{ elixir('assets/lib/bootstrap-select/css/bootstrap-select.css') }}" rel="stylesheet">
+    <link href="{{ elixir('assets/lib/bootstrap-slider/css/bootstrap-slider.css') }}" rel="stylesheet">
+    <link href="{{ elixir('css/all.css', '') }}" rel="stylesheet">
 
-  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body>
+  <body class="style-grey-red">
     <div class="am-wrapper am-fixed-sidebar">
       <nav class="navbar navbar-default navbar-fixed-top am-top-header">
         <div class="container-fluid">
           <div class="navbar-header">
-            <div class="page-title"><span>Form Elements</span></div><a href="#" class="am-toggle-left-sidebar navbar-toggle collapsed"><span class="icon-bar"><span></span><span></span><span></span></span></a><a href="index.html" class="navbar-brand"></a>
+            <div class="page-title"><span>{{ $title }}</span></div>
+            <a href="#" class="am-toggle-left-sidebar navbar-toggle collapsed">
+              <span class="icon-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </a>
+            <a style="padding:0" href="index.html" class="navbar-brand">
+            {{-- <img class="img img-responsive" src="https://www.minutebuzz.com/public/img/txt-hero.png"> --}}
+            {{-- <img style="width:80%; margin:auto; opacity:0.45;" class="img img-responsive" src="http://acem.edu.np/techbihani/img/hero.png">   --}}
+            {{-- <img style="width:80%; margin:auto; opacity:0.55;" class="img img-responsive" src="  https://pbs.twimg.com/profile_images/760697118294237186/KVBMD0Zc.jpg">   --}}
+          
+            </a>
           </div>
           <a href="#" class="am-toggle-right-sidebar">
             <span style="color: #024156; border: 2px solid #cc5151; font-weight: bold; padding: 5px; background: #f2baba; border-radius: 55px" class="icon s7-gift"></span>
@@ -42,7 +58,7 @@
                   <li><a href="#"> <span class="icon s7-user"></span>Mon compte</a></li>
                   <li><a href="#"> <span class="icon s7-config"></span>Paramètres</a></li>
                   <li>
-                    <a href="{{route('logout')}}" 
+                    <a class='pagelink' href="{{route('logout')}}" 
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();"> 
                       <span class="icon s7-power"></span>
                         Déconnexion
@@ -75,7 +91,7 @@
         <div class="content">
           <div class="am-logo"></div>
           <ul class="sidebar-elements">
-            <li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Accueil</span></a>
+            <li class="parent"><a class='pagelink' href="#"><i class="icon s7-monitor"></i><span>Accueil</span></a>
                <!-- <ul class="sub-menu">
                 <li><a href="index.html">Version 1</a>
                 </li>
@@ -88,25 +104,28 @@
               </ul>  -->
             </li>
 
-            <li class="parent"><a href="{{route('invoices.index')}}"><i class="icon s7-ribbon"></i><span>Factures</span></a>
-              <ul class="sub-menu">
+            <li class="parent {{ Request::is('invoices*') ? 'active' : '' }}">
+              <a class='pagelink' href="{{route('invoices.index')}}"><i class="icon s7-ribbon"></i><span>Factures</span></a>
+             {{--  <ul class="sub-menu">
                 <li class=""><a href="{{route('invoices.index')}}">Toutes les factures</a></li>
                 <li class="active"><a href="{{route('invoices.create')}}"><span class="label label-primary pull-right">Créer</span>Nouvelle facture</a></li>
-              </ul>
+              </ul> --}}
             </li>
             
-            <li class="parent"><a href="{{route('orders.index')}}"><i class="icon s7-note2"></i><span>Devis</span></a>
-              <ul class="sub-menu">
+            <li class="parent {{ Request::is('orders*') ? 'active' : '' }}">
+            <a class='pagelink' href="{{route('orders.index')}}"><i class="icon s7-note2"></i><span>Devis</span></a>
+             {{--  <ul class="sub-menu">
                 <li><a href="{{route('orders.index')}}">Tous les devis</a></li>
                 <li><a href="{{route('orders.create')}}"><span class="label label-primary pull-right">Créer</span>Nouveau devis</a></li>
-              </ul>
+              </ul> --}}
             </li>
 
-            <li class="parent"><a href="{{route('customers.index')}}"><i class="icon s7-users"></i><span>Clients</span></a>
-              <ul class="sub-menu">
-                <li><a href="{{route('customers.index')}}">Tous les clients</a></li>
+            <li class="parent {{ Request::is('customers*') ? 'active' : '' }}">
+            <a class='pagelink' href="{{route('customers.index')}}"><i class="icon s7-users"></i><span>Mes Clients</span></a>
+              {{-- <ul class="sub-menu">
+                <li><a href="{{route('customers.index')}}">Tous les Clients</a></li>
                 <li><a href="{{route('customers.create')}}"><span class="label label-primary pull-right">Ajouter</span>Nouveau Client</a></li>
-              </ul>
+              </ul> --}}
             </li>
 
 
@@ -120,14 +139,12 @@
                 </li>
               </ul>
             </li> --}}
-            <li class="parent"><a href="{{route('users.edit', Auth::id() )}}"><i class="icon s7-settings"></i><span>Mes infos</span></a>
-              <ul class="sub-menu">
-                <li><a href="layouts-nosidebar-right.html">Mon Siret</a></li>
-                <li><a href="pages-blank-aside.html">Mes coordonnées</a></li>
-                <li><a href="layouts-nosidebar-left.html">Mes conditions de paiement</a></li>
+            <li class="parent {{ Request::is('users*') ? 'active' : '' }}">
+            <a class='pagelink' data-turbolinks="false" href="{{route('users.edit', Auth::id() )}}"><i class="icon s7-settings"></i><span>Mon Entreprise</span></a>
+              {{-- <ul class="sub-menu">
+                <li><a href="layouts-nosidebar-right.html">Identité</a></li>
                 <li><a href="layouts-nosidebar-right.html">Mes conditions générales <span><small>(optionnel)</small></span></a></li>
-                <li><a href="layouts-nosidebar-right.html">Accre</a></li>
-              </ul>
+              </ul> --}}
             </li>
            {{--  <li class="parent"><a href="#"><i class="icon s7-map-marker"></i><span>Maps</span></a>
               <ul class="sub-menu">
@@ -143,14 +160,55 @@
       </div>
       <div class="am-content">
         <div class="page-head">
-          <h2>{{ $title }}</h2>
-          <ol class="breadcrumb">
+        <div class="row">
+        <div class="col-lg-10">
+        @if(isset($btntitle)) 
+          <a  style="float: right;
+                    margin-top: 6px;
+                    background: #fff;
+                    border-width: 1px;
+                    color: #678;
+                    padding: 14px 17px;" 
+              href="{{route($ctrllink.'.'.$actionlink)}}" class="btn btn-space btn-primary md-trigger pagelink">
+                <i class="fa fa-plus"></i>
+                {{$btntitle}}
+          </a>
+        @endif
+          <h2 style="opacity:0">{{$title}}</h2>
+
+          <ol class="breadcrumb hidden">
             <li><a href="#">Home</a></li>
             <li class="active">{{ $title }}</li>
           </ol>
+
         </div>
+        </div>
+        </div>
+  
+        <!-- <aside class="page-aside">
+          <div class="am-scroller nano has-scrollbar">
+            <div class="nano-content" tabindex="0" style="right: -17px;">
+              <div class="content">
+                <h2>Aside Element</h2>
+                <p>This is the <b>aside</b> content, you can easily add content and components to this element.</p>
+              </div>
+            </div>
+          <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 559px; transform: translate(0px, 0px);"></div></div></div>
+        </aside> -->
+
         <div class="main-content">
-         @yield('content')
+
+        <div class="super-loading hidden">
+          <div id="loading">
+            <ul class="bokeh">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+          </div>
+        </div>
+
+        @yield('content')
         </div>
         </div>
       </div>
@@ -345,16 +403,15 @@
     <script src="assets/js/app-form-elements.js" type="text/javascript"></script> 
     --}}
 
+    {{--  <script src="js/turbolinks.js" data-turbolinks-eval="false"></script>  --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="{!! elixir('assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js') !!}"></script>
-    <script src="{!! elixir('js/all.js') !!}"></script>
+    <script src="{!! elixir('js/all.js', '') !!}"></script>
 
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     {{-- <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script> --}}
-     @yield('pagescript')
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-   
+    @yield('pagescript')
 
     <script type="text/javascript">
       //Set Nifty Modals defaults
@@ -378,10 +435,14 @@
       $(document).ready(function(){
         // initialize the javascript
         App.init();
-        App.wizard();
-        App.formElements();
+        //App.masks();  
+        //App.wizard();
+        //App.formElements();
         
       });
+
     </script>
+
+    
   </body>
 </html>

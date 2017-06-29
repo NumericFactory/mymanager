@@ -2,8 +2,8 @@
 #gritter-notice-wrapper {
 	position:fixed;
 	top:20px;
-	right:20px;
-	width:301px;
+	right:-350px;
+	width:320px;
 	z-index:9999;
 }
 #gritter-notice-wrapper.top-left {

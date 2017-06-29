@@ -28,8 +28,14 @@ class Invoice extends Model
     	order_id - integer
     	name - string
     */
-    public function orderlines()
+    /*public function orderlines()
     {
         return $this->hasManyThrough('App\Orderline', 'App\Order');
+    }*/
+    
+    public function lines()
+    {
+        return $this->morphMany('App\Line', 'linable');
     }
+
 }

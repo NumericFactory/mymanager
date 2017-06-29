@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersController extends Controller
 {
@@ -13,7 +14,12 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        return view('orders.index', ['title'=>'Devis']);
+        return view('orders.index', [
+            'title'=>'Devis', 
+            'btntitle'=>'Créer un devis', 
+            'ctrllink'=> 'orders', 
+            'actionlink'=>  'create',
+            ]);
     }
 
     /**
@@ -23,7 +29,10 @@ class OrdersController extends Controller
      */
     public function create()
     {
-         return view('orders.create', ['title'=>'Créer un nouveau devis']);
+         $user = Auth::user();
+         $customers= $user->customers->sortBy("name");
+         //dd($customers);
+         return view('orders.create', ['title'=>'Créer un nouveau devis', 'user'=>$user, 'customers'=>$customers]);
     }
 
     /**

@@ -11,63 +11,62 @@ var App = (function () {
   var grandTotalHt;
 
 
-  function calculateTotalPriceline(e) {
-    //e.preventDefault();
-    var thisinput = e.target.getAttribute('class');
-    var inputlinenumber = thisinput.split(' ')[1].split('-')[1];
-    // console.log(inputlinenumber); 
+function calculateTotalPriceline(e) {
+  //e.preventDefault();
+  var thisinput = e.target.getAttribute('class');
+  var inputlinenumber = thisinput.split(' ')[1].split('-')[1];
+  // console.log(inputlinenumber); 
 
-    // renvoie l1 pour la ligne1, l2 pour la ligne2, etc...
-   
-    totalPriceline = document.querySelector('.totalrow-'+inputlinenumber);
-    //console.log(totalPriceline);
-    grandTotalHt = document.getElementById('grandtotalht');
-    //console.log(grandTotalHt);
+  // renvoie l1 pour la ligne1, l2 pour la ligne2, etc...
+ 
+  totalPriceline = document.querySelector('.totalrow-'+inputlinenumber);
+  //console.log(totalPriceline);
+  grandTotalHt = document.getElementById('grandtotalht');
+  //console.log(grandTotalHt);
 
-    // Si on est sur l'input "quantité"
-    if(e.target.getAttribute('class').split(' ')[0] =='qty') {
-      if(isNaN(e.target.value)) {
-        e.target.value='';
-      }
-      else {
-
-        if(document.querySelector(".currency-"+inputlinenumber).value.trim() != '') {
-          // var inputcurrvalue = e.target.value * (document.querySelector(".currency-"+inputlinenumber).value)
-          console.log(document.querySelector(".currency-"+inputlinenumber));
-          totalPriceline.innerHTML = (e.target.value * document.querySelector(".currency-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
-        }
-      }
+  // Si on est sur l'input "quantité"
+  if(e.target.getAttribute('class').split(' ')[0] =='qty') {
+    if(isNaN(e.target.value)) {
+      e.target.value='';
     }
-
-    // Si on est sur l'input "prix unitaire"
-    else if(e.target.getAttribute('class').split(' ')[0] == 'currency') {
-      if(isNaN(e.target.value)) {
-        e.target.value='';
-      }
-      else {
-        if(document.querySelector(".qty-"+inputlinenumber).value.trim() != '') {
-          totalPriceline.innerHTML = (e.target.value * document.querySelector(".qty-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
-        }
-      }     
-    }
-
     else {
-      // 
-    }
 
-    var totalLines = document.getElementsByClassName('totalrow');
-    console.log(totalLines);
-    var grandTotalPrice=0;
-
-    for(var t=0; t<totalLines.length; t++) {
-      console.log(totalLines[t].innerHTML);
-        if (!isNaN(totalLines[t].innerHTML.replace(/ /g,''))) 
-          grandTotalPrice += parseFloat(totalLines[t].innerHTML.replace(/ /g,'')); 
+      if(document.querySelector(".currency-"+inputlinenumber).value.trim() != '') {
+        // var inputcurrvalue = e.target.value * (document.querySelector(".currency-"+inputlinenumber).value)
+        console.log(document.querySelector(".currency-"+inputlinenumber));
+        totalPriceline.innerHTML = (e.target.value * document.querySelector(".currency-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+      }
     }
-    console.log(grandTotalPrice);
-    grandTotalHt.innerHTML = grandTotalPrice.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
   }
 
+  // Si on est sur l'input "prix unitaire"
+  else if(e.target.getAttribute('class').split(' ')[0] == 'currency') {
+    if(isNaN(e.target.value)) {
+      e.target.value='';
+    }
+    else {
+      if(document.querySelector(".qty-"+inputlinenumber).value.trim() != '') {
+        totalPriceline.innerHTML = (e.target.value * document.querySelector(".qty-"+inputlinenumber).value).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+      }
+    }     
+  }
+
+  else {
+    // 
+  }
+
+  var totalLines = document.getElementsByClassName('totalrow');
+  console.log(totalLines);
+  var grandTotalPrice=0;
+
+  for(var t=0; t<totalLines.length; t++) {
+    console.log(totalLines[t].innerHTML);
+      if (!isNaN(totalLines[t].innerHTML.replace(/ /g,''))) 
+        grandTotalPrice += parseFloat(totalLines[t].innerHTML.replace(/ /g,'')); 
+  }
+  console.log(grandTotalPrice);
+  grandTotalHt.innerHTML = grandTotalPrice.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1 ");
+}
 
 
 
@@ -80,6 +79,7 @@ function autosize(){
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
   },0);
 }
+
 
 function injectTemplate(template, targetParent, dict) {
         var count = document.getElementsByClassName('mission-line').length;
@@ -106,7 +106,7 @@ function injectTemplate(template, targetParent, dict) {
           document.getElementsByClassName('currency')[i].addEventListener("keyup", calculateTotalPriceline);
         }
         //alert(canvas.innerHTML)
-    }
+}
 
 function injectNewLine() {
   injectTemplate("template1", "linesInTbody", {var1:"1+1", var2:2, "#ref":"abc.net"});
@@ -116,18 +116,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var inputQty = document.querySelector('input.qty');
   var inputUnitPriceline = document.querySelector('input.currency');
 
-  inputQty.addEventListener("change", calculateTotalPriceline);
-  inputUnitPriceline.addEventListener("change", calculateTotalPriceline);
-  inputQty.addEventListener("keyup", calculateTotalPriceline);
-  inputUnitPriceline.addEventListener("keyup", calculateTotalPriceline);
-  document.querySelector('textarea').addEventListener('keydown', autosize);
-  document.querySelector('#addable-row').addEventListener('click', injectNewLine);
+  if(inputQty!=null) inputQty.addEventListener("change", calculateTotalPriceline);
+  if(inputUnitPriceline!=null) inputUnitPriceline.addEventListener("change", calculateTotalPriceline);
+  if(inputQty!=null) inputQty.addEventListener("keyup", calculateTotalPriceline);
+  if(inputUnitPriceline!=null) inputUnitPriceline.addEventListener("keyup", calculateTotalPriceline);
+  if(document.querySelector('textarea')!=null) document.querySelector('textarea').addEventListener('keydown', autosize);
+  if(document.querySelector('#addable-row')!=null) document.querySelector('#addable-row').addEventListener('click', injectNewLine);
 });
-
-
-
-
-
 
 
   //Basic Config

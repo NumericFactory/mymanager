@@ -2,7 +2,16 @@
 
 @section('content')
 <div class="row">
-            <div class="col-md-9">
+
+             <div class="col-lg-2 col-md-12 pull-right">
+              <div class="menu-assist">
+                <a href="#">Aide</a>
+                <a href="#">Voir la vidéo</a>
+                <a href="#">Signaler un bug</a>
+              </div>
+            </div>
+
+            <div class="col-lg-10 col-md-12">
               <div class="invoice">
                 <div class="row invoice-header">
                   <div class="col-xs-7">
@@ -22,12 +31,11 @@
                       <span class="sr-only">Modifier mes coordonnées</span>
                     </a>
                   </header>
-                    <span class="name">Frederic LOSSIGNOL / Web Developper</span>
-                    <span>2 allée des lilas 93300 Aubervilliers</span>
-                    <span>Siret : 195295730</span>
-                    <span class="phone">0688362255</span>
-                    <span class="email">frederic.lossignol@gmail.com</span>
-                    
+                    <span class="name">{{$user->company->name}} / Web Developper</span>
+                    <span>{{$user->company->addresses->first()->address}} {{$user->company->addresses->first()->cp}} {{$user->company->addresses->first()->city}}</span>
+                    <span>Siren : {{$user->company->siren}}</span>
+                    <span class="phone">{{$user->tel}}</span>
+                    <span class="email">{{$user->email}}</span>
                   </div>
 
                   <div class="col-sm-3 invoice-payment-direction">
@@ -43,16 +51,24 @@
                         <option>Hidden</option>
                       </optgroup>
                       <optgroup label="Clients">
-                        <option>Webforce3</option>
-                        <option>3w academy</option>
-                        <option>ADNPY Le Perray</option>
+                        @foreach($customers as $customer)
+                          <option value="{{$customer->id}}" data-address="{{$customer->addresses->first()->address}}" data-cp="{{$customer->addresses->first()->cp}}" data-city="{{$customer->addresses->first()->city}}" data-country="{{$customer->addresses->first()->country}}">
+                          {{$customer->name}} 
+                          @if(trim($customer->optionnalname) !='' || $customer->optionnalname != null) 
+                          / {{$customer->optionnalname}} 
+                          @endif
+                          </option>
+                        @endforeach
                       </optgroup>
                     </select>
 
 
 
                   </header>
-                    <span class="name">Civiliz</span>
+                    <span class="name"><a onclick="event.preventDefault();" data-modal="form-primary" title="Modifier le nom du Client" id="openClientNameButton" role="button" href="#" class="clickable hidden-when-read-only hidden-print md-trigger">
+                      <i class="fa fa-pencil"></i>
+                      <span class="sr-only">Modifier mes coordonnées</span>
+                    </a> Civiliz</span>
                     <span>105 rue Voltaire</span>
                     <span>92800 Puteaux</span>
                     <span>Contact : Marion Blanc</span>
@@ -61,12 +77,11 @@
 
          <!--  FORMULAIRE MISSION  -->
         
-
           <!--  FIN FORMULAIRE MISSION -->
 
           <!-- MISSION -->
          <div class="row">
-            <div class="">
+            <div class="col-md-12">
               <div class="panel panel-grey">
                 <div class="panel-body">
                   <form action="#" class="form-horizontal group-border-dashed" novalidate="">
@@ -76,12 +91,12 @@
                         <input required="" class="form-control" data-parsley-id="28" placeholder="Nom de la mission" type="text">
                       </div>
                     </div>
-                    <div class="form-group col-md-5">
+                    {{-- <div class="form-group col-md-5">
                       <label class="col-md-4 col-sm-4 control-label">Référence interne</label>
                       <div class="col-md-8 col-sm-8">
                         <input required="" data-parsley-max="6" class="form-control" data-parsley-id="38" placeholder="" type="text">
                       </div>
-                    </div>   
+                    </div>   --}} 
                   </form>
                 </div>
               </div>
@@ -93,12 +108,19 @@
                     <table class="invoice-details">
                       <tbody id="linesInTbody">
                       <tr>
+                        <span style="position:absolute;top:35px;left:-15px;font-size: 1.7em;color: #87878e;" class="">
+                        <a href="#">
+                          <i title="Déplacer" class="icon s7-expand1" style="color: #87878e;"></i>
+                        </a>
+                        </span> 
                         <th style="width:60%">Détails</th>
                         <th style="width:5%; text-align: center" class="hours">Qté</th>
                         <th style="width:11%; text-align: center" class="amount">Prix Unit. (HT)</th>
-                        <th style="width:11%" class="amount">TOTAL</th>
+                        <th style="width:8%" class="amount">TOTAL</th>
+                        <th style="width:3%"></th>
                       </tr>
                         <tr class="mission-line jsinit">
+                        
                         <td class="fakeform full-width description c1">
                           <div class="flex-full-width">
                             <i class="fa fa-bars hidden"></i>
@@ -129,6 +151,14 @@
                       <td class="totalrowth amount c4">
                         <span id="totalPriceline" class="totalrow totalrow-l1">0,00</span> €
                       </td>
+                      <td style="float:right" class="">
+                        <span style="position:relative;top:4px" class="">
+                        <a href="#">
+                          <i title="Supprimer" class="icon s7-trash" style="font-size: 1.7em;color: #87878e"></i>
+                        </a>
+                        </span> 
+                      </td>
+
                       <!-- 
                       <td headers="c5">
                         <div class="pull-right action-row clickable orange">
@@ -232,49 +262,33 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> {{-- FIN FORMULAIRE --}}
+
+           
+
           </div>
 
-<!-- Nifty Modal-->
+ {{-- Nifty Modal --}}
                   <div id="form-primary" class="modal-container modal-colored-header custom-width modal-effect-3">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><i class="icon s7-close"></i></button>
-                        <h3 class="modal-title">Mes coordonnées</h3>
+                        <h3 class="modal-title">Modifier mes coordonnées de contact</h3>
                       </div>
                       <div class="modal-body form">
-
-                         <div class="row">
-                          <div class="form-group col-md-12">
-                            <label>Prénom et Nom</label>
-                          </div>
-                        </div>
-                        <div class="row no-margin-y">
-                          <div class="form-group col-xs-5">
-                            <input type="name" placeholder="Prénom" class="form-control">
-                          </div>
-                          <div class="form-group col-xs-5">
-                            <input type="name" placeholder="Nom" class="form-control">
-                          </div>
-                        </div>
-
-                         <div class="form-group">
-                          <label>Votre adresse</label>
-                          <input type="address" placeholder="Entrez votre adresse postale" class="form-control">
-                        </div>
-
+                        
+                        <span class="fa fa-info-circle"></span> Vous pouvez modifier vos coordonnées de contact sur ce devis, si vous le souhaitez.
+                        <hr>
+                           
                         <div class="form-group">
                           <label>Votre email</label>
-                          <input type="email" placeholder="ex: fred@gmail.com" class="form-control">
+                          <input value="{{$user->email}}" type="email" placeholder="ex: fred@gmail.com" class="form-control">
                         </div>
                         <div class="form-group">
                           <label>Téléphone principal</label>
-                          <input type="phone" placeholder="06 88 36 22 55" class="form-control">
+                          <input value="{{$user->tel}}" type="phone" placeholder="06 88 36 22 55" class="form-control">
                         </div>
                        
-                        <p>
-                          <input type="checkbox" name="c[]" checked="">  Recevoir les notifications par Email
-                        </p>
                       </div>
                       <div class="modal-footer">
                         <button type="button" data-dismiss="modal" class="btn btn-default modal-close">Fermer</button>
@@ -343,5 +357,6 @@
    {{--  <script src="{!! elixir('assets/lib/bootstrap-slider/js/bootstrap-slider.js') !!}"></script> --}}
     
     <script src="{!! elixir('assets/js/app-form-elements.js') !!}"></script>
+    
 @stop
 

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Customer;
+use App\Address;
+use App\Contact;
+
+use Illuminate\Support\Facades\Auth;
 
 class CustomersController extends Controller
 {
@@ -14,7 +20,18 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        return view('customers.index', ['title'=>'Clients']);
+        $user = Auth::user();
+        $customers = $user->customers()->orderBy('id', 'DESC')->get();
+
+        // $cust = Customer::find(519)->addresses;
+        // dd($cust);
+        return view('customers.index', [
+            'title'=>'Clients', 
+            'btntitle'=>'Ajouter un client', 
+            'ctrllink'=> 'customers', 
+            'actionlink'=>  'create',
+            'customers'=>$customers
+        ]);
     }
 
     /**
@@ -24,8 +41,6 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        
-
         return view('customers.create', ['title'=>'Ajouter un Client', 'countries' => $this->countries]);
     }
 
@@ -82,6 +97,356 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
     }
+
+    public function createCustomerDataStepOne(Request $request, Customer $customer) 
+    {   
+        // Par défaut, créer un Client est autorisé à tout le monde
+        // dd($request); dd($customer);
+        $user = Auth::user();
+
+        /* 
+        ** Modification de: siret, siren, nic, customername et customeroptionnalname avant enregistrement
+        ** Avec la méthode offsetSet() de Laravel
+        ** (permet de modifier une value à l'intérieur de $request->all() )
+        */
+        $siret = str_replace(' ', '', $request->siret);
+        $siren = substr($siret, 0, 9);
+        $nic = substr($siret, 9, 5);
+        $nic = sprintf("%05s", $nic);
+        $request->offsetSet('siret', $siret);
+        $request->offsetSet('siren', $siren);
+        $request->offsetSet('nic', $nic);
+
+        $name = trim($request->customername);
+        $name = strtoupper($name);
+        $name = (string)$name;
+        $request->offsetSet('customername', $name);
+
+        $optionnalname = trim($request->customeroptionnalname);
+        $optionnalname = strtoupper($optionnalname);
+        $optionnalname = (string)$optionnalname;
+        $request->offsetSet('customeroptionnalname', $optionnalname);
+
+        /*
+        ** VALIDATION
+        */
+        $this->validate($request, 
+            [
+                'customername' => 'required|min:2|max:85',
+                'siret' => 'required|digits:14',
+                'customertype' => 'required'
+            ], 
+            [
+                'customertype.required' => 'Choisissez le type de votre client',
+                'customername.required' => 'Le nom de votre client requis',
+                'customername.min' => 'Le nom de votre client est requis - entre 2 et 85 caractères',
+                'customername.max' => 'Le nom de votre client est requis - entre 2 et 85 caractères'      
+            ]
+        );
+        /* 
+        ** Si le client existe alors on update ce client, sinon on le crée (la fonction save())
+        ** Les champs customer_id et customer_code sont générés côté JS 
+        ** (function saveCustomerPersoData() - /resources/assets/js/customer.js)
+        ** On utilise la fonction crypt et decrypt de laravel (https://laravel.com/docs/5.4/encryption)
+        */
+        if($request->customer_id || $request->customercode) 
+        {
+            // customerVerify() retourne l'object $customer trouvé en DB, ou false
+            $customerexists = $this->customerVerify($request->customer_id, $request->customercode, $user); 
+            
+            if($customerexists == false ) 
+            {
+                $response = ['status'=>'success','message'=>'Opération non autorisée.'];
+                if($request->ajax()) 
+                {
+                    return response()->json(['error' => 'Not authorized.'],403);
+                } 
+                else 
+                {
+                    \Session::flash('flash', $response['message']);
+                    return redirect(route('customers.index'));
+                }
+            } 
+            else 
+            {
+                $customer = $customerexists;     
+            }
+        }
+
+        // On forme l'objet $customer à sauvegarder
+        $customer->name    = $request->customername;
+        $customer->optionnalname = $request->customeroptionnalname;
+        $customer->type_id = $request->customertype;
+        $customer->siret   = $request->siret;
+        $customer->siren   = $request->siren;
+        $customer->nic     = $request->nic;
+
+        // On sauvegarde le customer
+        if($customer->save() && $user->customers()->syncWithoutDetaching([$customer->id]) )
+        {
+            //dd($customer->id);
+            $response = [
+                'customercode' => encrypt($customer->id),
+                'customerid'=>  $customer->id,
+                'status'    =>  'success',
+                'message'   =>  'Identité du client sauvegardée.',
+            ];
+        }
+        else 
+        {
+            $response = [
+                'status'    =>  'error',
+                'message'   =>  'Une erreur est survenue durant la mise à jour. Veuillez rééssayer.'
+            ];
+        }
+
+
+
+        if($request->ajax()) {
+            return response()->json($response);
+        } else {
+            \Session::flash('flash', $response['message']);
+            return redirect(route('customers.index'));
+        }
+
+    } // FIN function createcustomerDataStepOne
+
+
+
+
+    public function createCustomerDataStepTwo(Request $request, Address $address, Customer $customer) {
+        /* 
+        ** 1 Si le customer id existe
+        ** (Le champ customer_id est généré côté JS)
+        ** (function saveCustomerPersoData() - /resources/assets/js/customer.js)
+        */
+        $user = Auth::user();
+        if($request->customer_id && $request->customer_id != 'undefined') 
+        { 
+            // customerVerify() retourne l'object $customer trouvé en DB, ou false
+            $customerexists = $this->customerVerify($request->customer_id, $request->customercode, $user); 
+            
+            if($customerexists == false ) 
+            {
+                $response = ['status'=>'success','message'=>'Opération non autorisée.'];
+                if($request->ajax()) 
+                {
+                    return response()->json(['error' => 'Not authorized.'],403);
+                } 
+                else 
+                {
+                    \Session::flash('flash', $response['message']);
+                    return redirect(route('customers.index'));
+                }
+            } 
+            else 
+            {
+                //return l'adresse du customer, null if no address in DB, 
+                $adressexists = Address::where([
+                    'addressable_id'=>$request->customer_id, 
+                    'addressable_type'=>'App\Customer',
+                    'addresstype' =>1 
+                ])  ->first();    
+            }
+
+
+            
+
+            // 1.1 Si l'adresse de facturation du customer existe en DB
+            if($adressexists != null) 
+            { 
+                /*
+                ** 1.2 Si cette adresse de facturation appartient à : un customer enregistré qui appartient à l'utilisateur 
+                ** alors on update cette adresse
+                ** Sinon on renvoie un message d'erreur
+                */
+                switch($adressexists->addressable->user->first()->id) {
+                    case Auth::user()->id:
+                        $address = $adressexists;
+                    break;
+                    default:
+                        $response = [
+                            'status'    =>  'success',
+                            'message'   =>  'Opération non autorisée.',
+                        ];
+                        if($request->ajax()) {
+                            return response()->json(['error' => 'Not authorized.'],403);
+                        } else {
+                            \Session::flash('flash', $response['message']);
+                            return redirect(route('customers.index'));
+                        }
+                    break;
+                }   
+            }
+
+            $address->addressable_type  = 'App\Customer';
+            $address->addressable_id    = $request->customer_id;
+            $address->formatted_address = $request->formatted_address;
+            $address->address           = $request->address;
+            $address->complementaddress = $request->complementaddress;
+            $address->cp                = $request->cp;
+            $address->city              = $request->city;
+            $address->country           = $request->country;
+            $address->addresstype       = 1; // 1 = adresse de facturation / 2 = adresse entreprise
+            
+            
+
+            if( $address->save() )
+            {
+                //dd($customer->id);
+                $response = [
+                    'status'    =>  'success',
+                    'message'   =>  'Adresse de facturation client sauvegardée.',
+                ];
+            }
+            else 
+            {
+                $response = [
+                    'status'    =>  'error',
+                    'message'   =>  'Une erreur est survenue durant la mise à jour. Veuillez rééssayer.'
+                ];
+            }
+
+
+
+        }
+        
+        /* 
+        **  2 Sinon, le customer id n'existe pas, c'est qu'il y a un problème
+        **  On n'enregistre pas l'adresse et on indique à l'utilisateur de réessayer
+        */
+        else {
+            $response = [
+                            'status'    =>  'success',
+                            'message'   =>  'Opération non autorisée.',
+                        ];
+                        if($request->ajax()) {
+                            return response()->json(['error' => 'Not authorized.'],403);
+                        } else {
+                            \Session::flash('flash', $response['message']);
+                            return redirect(route('customers.index'));
+                        }
+                    break;
+        }
+
+        if($request->ajax()) { return response()->json($response);} 
+        else { \Session::flash('flash', $response['message']); return redirect(route('customers.index'));}
+
+    } // FIN CUSTOMER DATASTEPTWO
+
+
+
+
+    public function createCustomerDataStepThree(Request $request, Contact $contact, Customer $customer) {
+
+        /* 
+        ** 1 Si le customer id existe
+        ** (Le champ customer_id est généré côté JS)
+        ** (function saveCustomerPersoData() - /resources/assets/js/customer.js)
+        */
+        $user = Auth::user();
+        if($request->customer_id && $request->customer_id != 'undefined') 
+        { 
+            // dd($request->all());
+            // customerVerify() retourne l'object $customer trouvé en DB, ou false
+            $customerexists = $this->customerVerify($request->customer_id, $request->customercode, $user); 
+            
+            if($customerexists == false ) 
+            {
+                $response = ['status'=>'success','message'=>'Opération non autorisée.'];
+                if($request->ajax()) 
+                {
+                    return response()->json(['error' => 'Not authorized.'],403);
+                } 
+                else 
+                {
+                    \Session::flash('flash', $response['message']);
+                    return redirect(route('customers.index'));
+                }
+            } 
+            else 
+            {
+                //return le contact du customer, null if no contact in DB, 
+                $contactexists = Contact::where([
+                    'customer_id'=>$request->customer_id, 
+                ])  ->first();    
+            }
+
+        }
+
+
+        /* 
+        **  2 Sinon, le customer id n'existe pas, c'est qu'il y a un problème
+        **  On n'enregistre pas l'adresse et on indique à l'utilisateur de réessayer
+        */
+        else 
+        {
+            $response = [
+                            'status'    =>  'success',
+                            'message'   =>  'Opération non autorisée.',
+                        ];
+                        if($request->ajax()) {
+                            return response()->json(['error' => 'Not authorized.'],403);
+                        } else {
+                            \Session::flash('flash', $response['message']);
+                            return redirect(route('customers.index'));
+                        }
+                    break;
+        }
+
+
+
+
+        if($request->ajax()) { return response()->json($response);} 
+        else { \Session::flash('flash', $response['message']); return redirect(route('customers.index'));}     
+
+    }
+
+
+
+
+
+
+
+
+    /*
+    ** Function customerVerify
+    ** Vérifie la correspondance : customer_id / customercode (antihack) et que le customer appartient à l'utilisateur
+    ** Retourne l'objet $customer si validation, false sinon
+    */
+    private function customerVerify($customer_id, $customer_code, $user)  
+    {     
+        /* 
+        ** On vérifie SI l'utilisateur n'a pas moidifié le customer_id (hack ou malveillance)
+        ** en comparant le $customer_id au customercode (crypté)
+        */
+        if($customer_code && trim($customer_id)=='') {
+            return false;
+        }
+        if($customer_id != decrypt($customer_code)) {
+            return false;
+        }
+
+        // Si le customer existe en DB, appartient-il à l'utilisateur connecté
+        $customerexists = Customer::where('id', $customer_id)->first(); // return null if no customer with this id in DB
+        if($customerexists != null ) 
+        { 
+            switch($customerexists->user->first()->id)
+            {
+                case $user->id: // Ce client existe dans la DB ET appartient bien à l'utilisateur
+                    return $customerexists;
+                break;
+
+                default: // Ce client existe dans la DB mais n'appartient pas à l'utilisateur
+                    return false;
+                break;
+            }    
+        }   
+    } // FIN function CustomerVerify
+
+
+
 }

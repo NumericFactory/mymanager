@@ -13,7 +13,12 @@ class InvoicesController extends Controller
      */
     public function index()
     {
-       return view('invoices.index', ['title'=>'Factures']);
+       return view('invoices.index', [
+        'title'=>'Factures',
+        'btntitle'=>'Créer une facture', 
+        'ctrllink'=> 'invoices', 
+        'actionlink'=>  'create',
+        ]);
     }
 
     /**

@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 
 
@@ -27,7 +27,7 @@ Route::get('/', function () {
 | and give it the controller to call when that URI is requested.
 |
 */
-//Route::auth();
+// Route::auth();
 
 // Route::get('/', function () {
 //     return view('home');
@@ -41,6 +41,7 @@ Route::get('/', 'HomeController@index');
 // });
 
 // Route::group(['middleware' => ['web']], function () {
+
 Route::group(['middleware' => ['auth']], function () {
   /*
   |--------------------------------------------------------------------------
@@ -64,22 +65,32 @@ Route::group(['middleware' => ['auth']], function () {
   | DELETE users/{users}         | users.destroy | UsersController@destroy
   });
 
-  Route::post('uploadplaceimg', 'PicturesController@uploadPlaceImg');
-  Route::delete('destroytemporaryplaceimg', 'PicturesController@destroy');
-  Route::delete('destroydefinitiveplaceimg', 'PicturesController@deleteDefinitiveImage');
-    
-  
+
   /**
-   * ROUTE POUR DEFINIR LE CHEMIN DES FICHIERS IMAGES TEMPORAIRES
-   * chemin du dossier où on stocke les fichiers temp : /storage/app/temp/xxx.jpg
-  */
+   * ROUTES POUR SAUVEGARDER LES DATAS UTILISATEURS
+  **/
+  Route::post('/saveuserstepone/{user}', 'UsersController@saveCompanyDataStepOne');
+  Route::post('/saveusersteptwo/{user}', 'UsersController@saveCompanyDataStepTwo');
 
-  Route::get('/pricing', function() {
-    return view('pages.pricing');
-  })->name('pricing');;
+  Route::post('/savecompanyiban/{user}', 'UsersController@saveCompanyIban');
+  Route::post('/savecompanycheque/{user}', 'UsersController@saveCompanyCheque');
+  Route::post('/savecompanypaypal/{user}', 'UsersController@saveCompanyPaypal');
+  Route::post('/savecompanymoney/{user}', 'UsersController@saveCompanyMoney');
+
+  /**
+   * ROUTES POUR SAUVEGARDER LES DATAS CLIENTS
+  **/
+  Route::post('/createcustomerstepone', 'CustomersController@createCustomerDataStepOne');
+  Route::post('/createcustomersteptwo', 'CustomersController@createCustomerDataStepTwo');
+  Route::post('/createcustomerstepthree', 'CustomersController@createCustomerDataStepThree');
+
+  
+
+  Route::get('/pricing', 'PricingController@index')->name('pricing');
+ 
 
 
-
+/*
   Route::get('temp/places/{path}/{filename}', function ($path, $filename)
     {
         $path = storage_path() . '/app/temp/'.$path.'/'. $filename;
@@ -94,8 +105,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         return $response;
     }); //fin route images dans le dossier /storage/app/temp/xxx.jpg
+*/
 
  }); //fin route group
-
 
 Auth::routes();

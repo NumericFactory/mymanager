@@ -23,7 +23,7 @@
 	$.gritter.options = {
 		position: '',
 		class_name: '', // could be set to 'gritter-light' to use white notifications
-		fade_in_speed: 'medium', // how fast notifications fade in
+		fade_in_speed: 100, // how fast notifications fade in
 		fade_out_speed: 1000, // how fast the notices fade out
 		time: 6000 // hang on the screen for...
 	}
@@ -159,7 +159,9 @@
 			
 			item.fadeIn(this.fade_in_speed, function(){
 				Gritter['_after_open_' + number]($(this));
+				item.animate({ right: "350" }, 'medium');
 			});
+			
 			
 			if(!sticky){
 				this._setFadeTimer(item, number);

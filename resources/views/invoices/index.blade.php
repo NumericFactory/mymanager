@@ -8,10 +8,10 @@
                 <div class="panel-heading">
                   <div class="tools"><span class="icon s7-upload"></span><span class="icon s7-edit"></span><span class="icon s7-close"></span></div>
                   <!-- <div class="panel-title">Toutes les factures</div> -->
-                   <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger">Primary</button>
+                   <button data-modal="form-primary" class="btn btn-space btn-primary md-trigger"><i class="fa fa-plus"></i> Créer une facture</button>
                 </div>
                 <div class="panel-body">
-                  <table class="table table-condensed table-hover table-bordered table-striped">
+                  <table class="table table-condensed table-hover table-striped">
                     <thead>
                       <tr>
                         <th width="12%">Etat</th>

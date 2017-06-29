@@ -23,13 +23,13 @@ var App = (function () {
       e.preventDefault();
     });
 
-   //Select2
+   /*//Select2
     $(".select2").select2({
       width: '100%'
     });
     
     //Select2 tags
-    $(".tags").select2({tags: true, width: '100%'});
+    $(".tags").select2({tags: true, width: '100%'});*/
 
     $("#credit_slider").slider().on("slide",function(e){
       $("#credits").html("$" + e.value);
