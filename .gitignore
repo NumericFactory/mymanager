@@ -9,3 +9,7 @@ Homestead.yaml
 .env.prod
 .env.local
 Envoy.blade.php
+.htaccess
+.htaccess2
+.user.ini
+composer.phar
