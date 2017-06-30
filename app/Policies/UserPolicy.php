@@ -87,9 +87,14 @@ class UserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function update(User $user, User $user)
+    /*public function update(User $user, User $user)
     {
         //
+    }*/
+
+    public function update(User $user, User $edit_user)
+    {
+        return $user->id === $edit_user->id;
     }
 
     /**
@@ -99,8 +104,13 @@ class UserPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function delete(User $user, User $user)
+    /*public function delete(User $user, User $user)
     {
         //
+    }*/
+
+    public function delete(User $user, User $edit_user)
+    {
+        return $user->id === $edit_user->id;
     }
 }
