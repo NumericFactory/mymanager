@@ -12,3 +12,4 @@ Envoy.blade.php
 .user.ini
 .user.ini.2017-06-29.bak.txt
 composer.phar
+composer.lock
