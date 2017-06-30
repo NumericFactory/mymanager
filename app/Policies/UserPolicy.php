@@ -64,9 +64,9 @@ class UserPolicy
     {
         return $user->id === $edit_user->id;
     }
-    public function view(User $user, User $user)
+    public function view(User $user, User $edit_user)
     {
-        //
+        return $user->id === $edit_user->id;
     }
 
     /**
