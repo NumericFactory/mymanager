@@ -329,6 +329,7 @@ class CustomersController extends Controller
                             \Session::flash('flash', $response['message']);
                             return redirect(route('customers.index'));
                         }
+                        
                     //break;
         }
 
