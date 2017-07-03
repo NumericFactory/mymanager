@@ -44,6 +44,6 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login', ['title'=>'Entrez vos identifiants.']);
+        return view('auth.login', ['title'=>'Entrez vos identifiant.']);
     }
 }
