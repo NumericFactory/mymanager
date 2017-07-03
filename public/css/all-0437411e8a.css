@@ -45,6 +45,10 @@
 em {
 	color: #606c76;
 }
+li.parent {
+    background-color: #424F5A;
+    transition: background-color 0.12s;
+}
 .small-clouds, .stars {
     background-repeat: no-repeat;
     left: 0;
