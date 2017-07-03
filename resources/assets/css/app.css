@@ -366,7 +366,8 @@ body.style-grey-red .am-top-header {
 }
 body.style-grey-red .am-left-sidebar {
 	/*background: #232526;*/	
-    background: #23232C;
+   /* background: #23232C;*/
+      background: #424f5a;
 }
 body.style-grey-red .am-top-header .navbar-collapse .navbar-nav > li > a {
 	color: rgba(255,255,255,0.5);
