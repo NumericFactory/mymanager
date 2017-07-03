@@ -19,12 +19,12 @@
 </div> -->
 
             <div style="border-bottom:1px dashed #dadada;background:#fff;padding:0px 1px 7px">
-              <h2 style="color:inherit;margin-top: 10px;font-size:21px;opacity:0.87;font-weight:600">
+              <h2 style="color: #606c76;font-size: 16px;font-weight: 600;">
                 <i class="icon s7-search" style="opacity: 0.9;
                           color: rgba(155,175,185, 0.67);
-                          font-size: 1.9em;
+                          font-size:1.9em;
                           position: relative;
-                          top: 10px;">            
+                          top:7px;">            
                 </i> 
                 <span style="position: relative">Trouver une entreprise</span>
               </h2>
