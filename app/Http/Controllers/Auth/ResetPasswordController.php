@@ -36,10 +36,4 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
-    public function showResetForm(Request $request, $token = null)
-    {
-        return view('auth.passwords.reset', ['title'=>'Mot de passe perdu? Renseignez votre Email.'])->with(
-            ['token' => $token, 'email' => $request->email]
-        );
-    }
 }
