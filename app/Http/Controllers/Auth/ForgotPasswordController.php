@@ -31,7 +31,7 @@ class ForgotPasswordController extends Controller
     }
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email', ['title'=>'Mot de passe oubliéees ? Renseignez votre Email.']);
+        return view('auth.passwords.email', ['title'=>'Mot de passe oublié ? Renseignez votre Email.']);
     }
     
 }
