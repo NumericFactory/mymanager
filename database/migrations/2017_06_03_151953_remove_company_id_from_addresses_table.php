@@ -26,7 +26,7 @@ class RemoveCompanyIdFromAddressesTable extends Migration
     public function down()
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->ineger('company_id')->unsigned()->nullable();
+            $table->integer('company_id')->unsigned()->nullable();
         });
     }
 }
