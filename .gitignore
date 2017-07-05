@@ -8,6 +8,8 @@ Homestead.yaml
 .env
 .env.prod
 .env.local
+.env.vm
+.env.xampp
 Envoy.blade.php
 .htaccess
 .htaccess2
