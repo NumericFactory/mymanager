@@ -642,7 +642,6 @@ input.iban {
 }
 .errors {
 	color: #B13535;
-    position: absolute;
 }
 #gritter-notice-wrapper {
     width: 360px !important;

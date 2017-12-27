@@ -185,7 +185,6 @@ class UsersController extends Controller
     }
 
 
-
     public function saveCompanyPaypal(Request $request, User $user) {
         $this->authorize('saveCompanyPaypal', $user);
 
